@@ -1,18 +1,11 @@
-<swiper-container init="false">
+<swiper-container init="false" class="w-full h-full relative" style="--swiper-pagination-color: #ff7d03; --swiper-pagination-bullet-size: 10px; --swiper-pagination-bullet-inactive-opacity: 0.7; --swiper-navigation-color: #ffffff00;">
   <swiper-slide>
-    <app-slide-card />
-    <img src="https://picsum.photos/1000/500?random=1" alt="" />
+    <app-slide-card [data]="{ mainImage: 'https://scontent.fgyn2-1.fna.fbcdn.net/v/t39.30808-6/303434303_606961997611817_3401355925243409573_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=kg9L7qKuk2QQ7kNvgGlUTht&_nc_zt=23&_nc_ht=scontent.fgyn2-1.fna&_nc_gid=APtRXY2eQKoUCK6lKyyNMfm&oh=00_AYAepZIaQTbrak5WhWwO94jlBvS73rWQpwZ0M7mi1XD3YA&oe=67197E52' }"/>
   </swiper-slide>
   <swiper-slide>
-    <img src="https://picsum.photos/1000/500?random=2" alt="" />
-  </swiper-slide>
-  <swiper-slide>
-    <img src="https://picsum.photos/1000/500?random=3" alt="" />
-  </swiper-slide>
-  <swiper-slide>
-    <img src="https://picsum.photos/1000/500?random=4" alt="" />
-  </swiper-slide>
-  <swiper-slide>
-    <img src="https://picsum.photos/1000/500?random=5" alt="" />
+    <app-slide-card [data]="{ mainImage: 'https://images.pexels.com/photos/24964744/pexels-photo-24964744/free-photo-of-montanhas-e-praias.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' }"/>
   </swiper-slide>
 </swiper-container>
+
+<div class="z-10 material-symbols-outlined absolute text-5xl text-white w-[60px] h-[60px] flex items-center justify-center rounded-lg bg-PRIMARY-default right-14 top-[50%] -translate-y-[25px] cursor-pointer hover:opacity-85" (click)="swiperEl?.swiper?.slideNext()">chevron_right</div>
+<div class="z-10 material-symbols-outlined absolute text-5xl text-white w-[60px] h-[60px] flex items-center justify-center rounded-lg bg-PRIMARY-default left-14 top-[50%] -translate-y-[25px] cursor-pointer hover:opacity-85" (click)="swiperEl?.swiper?.slidePrev()">chevron_left</div>

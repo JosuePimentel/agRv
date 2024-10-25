@@ -11,7 +11,7 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
   ],
   templateUrl: './header.component.html',
   host: {
-    class: 'flex py-[40px] items-center'
+    class: 'flex py-[40px] items-center relative z-[100]'
   }
 })
 export class HeaderComponent {

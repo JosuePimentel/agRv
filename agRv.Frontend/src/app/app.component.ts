@@ -7,7 +7,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
   host: {
-    class: 'block h-full mx-[10%]'
+    class: 'block h-full mx-[15%]'
   },
 })
 export class AppComponent {}

@@ -1,3 +1,11 @@
 <app-header/>
 
 <app-slide/>
+
+<div class="w-full flex justify-between py-[64px]">
+  @for(item of nav; track $index) {
+    <app-buttons-nav [data]="item"/>
+  }
+</div>
+
+<app-list-publications [title]="'Indicações'" [desc]="'Indicações da agendaRv e indicações pagas por anunciantes.'"/>

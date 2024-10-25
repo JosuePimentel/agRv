@@ -16,6 +16,34 @@
     margin: 0;
     appearance: none;
     color: #fff;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.3vw;
+    border-top-left-radius: 10px;
+    background-color: #dfdfdf;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #ff7d03;
+  }
+
+  input {
+    -webkit-user-select: text;
+    /* Chrome, Opera, Safari */
+    -moz-user-select: text;
+    /* Firefox 2+ */
+    -ms-user-select: text;
+    /* IE 10+ */
+    user-select: text;
+    /* Standard syntax */
   }
 }
 
@@ -44,3 +72,6 @@
     @apply text-xs font-normal;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
