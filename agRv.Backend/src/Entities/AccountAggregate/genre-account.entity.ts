@@ -3,6 +3,6 @@ import { BaseEntity } from '../Base/base.entity';
 
 @Entity('genre_accounts')
 export class GenreAccountEntity extends BaseEntity {
-  @Column({ type: 'varchar' })
+  @Column()
   name: string;
 }

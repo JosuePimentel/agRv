@@ -3,9 +3,9 @@ import { BaseLocationEntity } from '../Base/baseLocation.entiity';
 
 @Entity('Address')
 export class AddressEntity extends BaseLocationEntity {
-  @Column({ type: 'varchar' })
+  @Column()
   CEP: string;
 
-  @Column({ type: 'varchar', nullable: true })
+  @Column({ nullable: true })
   complement: string;
 }

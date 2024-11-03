@@ -3,12 +3,12 @@ import { BaseEntity } from '../Base/base.entity';
 
 @Entity('people')
 export class PersonEntity extends BaseEntity {
-  @Column({ type: 'varchar' })
+  @Column()
   name: string;
 
-  @Column({ type: 'varchar', name: 'artistic_name' })
+  @Column({ name: 'artistic_name', nullable: true })
   artisticName: string;
 
-  @Column({ type: 'date', name: 'birth_date' })
+  @Column({ type: 'date', name: 'birth_date', nullable: true })
   birthDate: Date;
 }

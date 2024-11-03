@@ -11,7 +11,7 @@ export enum PublicationTypeEnum {
 
 @Entity('publications')
 export class PublicationEntity extends BaseEntity {
-  @Column({ type: 'varchar' })
+  @Column()
   title: string;
 
   @Column({ type: 'varchar', name: 'main_image' })
@@ -23,16 +23,16 @@ export class PublicationEntity extends BaseEntity {
   @Column({ type: 'varchar', name: 'short_desc' })
   shortDesc: string;
 
-  @Column({ type: 'varchar', name: 'link_site' })
+  @Column({ type: 'varchar', name: 'link_site', nullable: true })
   linkSite: string;
 
-  @Column({ type: 'varchar' })
+  @Column({ nullable: true })
   phone: string;
 
-  @Column({ type: 'varchar' })
+  @Column()
   author: string;
 
-  @Column({ type: 'varchar' })
+  @Column()
   email: string;
 
   @Column({

@@ -3,9 +3,9 @@ import { BaseEntity } from '../Base/base.entity';
 
 @Entity('warnings')
 export class WarningEntity extends BaseEntity {
-  @Column({ type: 'varchar' })
+  @Column()
   icon: string;
 
-  @Column({ type: 'varchar' })
+  @Column()
   desc: string;
 }

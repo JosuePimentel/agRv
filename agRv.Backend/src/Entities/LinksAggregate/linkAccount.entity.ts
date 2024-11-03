@@ -3,6 +3,6 @@ import { BaseEntity } from '../Base/base.entity';
 
 @Entity('Link_Account')
 export class LinkAccountEntity extends BaseEntity {
-  @Column({ type: 'varchar' })
+  @Column()
   link: string;
 }

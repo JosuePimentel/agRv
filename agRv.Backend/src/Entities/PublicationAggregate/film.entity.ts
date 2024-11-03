@@ -3,7 +3,7 @@ import { BaseEntity } from '../Base/base.entity';
 
 @Entity('films')
 export class FilmEntity extends BaseEntity {
-  @Column({ type: 'varchar' })
+  @Column()
   video: string;
 
   @Column({ type: 'timestamptz', name: 'date_debut' })

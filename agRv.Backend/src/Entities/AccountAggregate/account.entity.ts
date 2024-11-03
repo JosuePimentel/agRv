@@ -12,7 +12,7 @@ export class AccountEntity extends BaseEntity {
   @Column()
   email: string;
 
-  @Column()
+  @Column({ nullable: true })
   phone: string;
 
   @Column()
