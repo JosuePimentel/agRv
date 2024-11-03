@@ -5,5 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './search-card.component.html',
+  host: {
+    class: 'flex gap-4 hover:bg-white h-24 rounded group cursor-pointer transition-colors',
+  }
 })
 export class SearchCardComponent {}

@@ -20,4 +20,8 @@ export class SearchBarComponent {
   search() {
     console.log(this.searchInput);
   }
+
+  escrever(e: any) {
+    console.log(e);
+  }
 }

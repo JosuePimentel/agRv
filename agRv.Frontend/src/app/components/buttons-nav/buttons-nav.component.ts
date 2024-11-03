@@ -7,7 +7,7 @@ import { nav } from '../../pages/home/home.component';
   imports: [],
   templateUrl: './buttons-nav.component.html',
   host: {
-    class: 'block flex flex-col justify-start items-center gap-[6px] w-[180px]'
+    class: 'block flex flex-col justify-start items-center gap-[6px] w-[150px]'
   }
 })
 export class ButtonsNavComponent {

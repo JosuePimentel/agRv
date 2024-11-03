@@ -1,2 +1,7 @@
-<h2 class="text-4xl font-semibold after:content-['?'] after:flex after:w-[20px] after:h-[20px] after:text-xs after:rounded-full after:border-solid after:border-white after:border-[1px] after:items-center after:justify-center flex items-center gap-[10px] cursor-pointer" [title]="desc">{{title}}</h2>
-<ng-content></ng-content>
+<h2 class="text-3xl font-semibold after:content-['?'] after:flex after:w-[20px] after:h-[20px] after:text-sm after:rounded-full after:border-solid after:border-white after:border-[1px] after:items-center after:justify-center flex items-center gap-[10px] cursor-pointer w-fit" [matTooltip]="desc" matTooltipPosition="after">{{title}}</h2>
+
+<div class="w-full grid-cols-[repeat(auto-fill,minmax(300px,1fr))] grid gap-9 mt-14">
+  @for (item of data; track $index) {
+    <app-publication-card [pub]="item"/>
+  }
+</div>

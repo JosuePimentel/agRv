@@ -1,0 +1,21 @@
+<div class="w-full h-[200px] relative bg-WHITE-default rounded-md">
+  <span class="absolute top-[20px] right-[25px] text-[10px] font-semibold py-1 px-3 text-black bg-white rounded-[3px] after:content-['?'] justify-center items-center after:w-[15px] after:h-[15px] after:flex after:items-center after:justify-center after:rounded-full after:border-[1px] after:ml-1 after:border-black after:border-solid {{pub.promoted ? 'flex' : 'hidden'}}" matTooltip="Publicação promovida pela plataforma agendaRioVerde" matTooltipPosition="below">Promovido</span>
+</div>
+<div class="px-4 pb-4 flex flex-col gap-1 group-hover:*:text-black">
+  <div class="">
+    @for (tag of pub.tags; track $index) {
+      <span class="px-5 py-1.5 rounded-md text-sm font-semibold flex justify-center items-center w-fit {{tag == 'Restaurante' ? 'bg-red-600 text-red-200' : 'bg-PRIMARY-default text-PRIMARY-200'}}">
+        {{tag}}
+      </span>
+    }
+  </div>
+  <h2 class="w-full text-wrap font-semibold">{{pub.title}}</h2>
+  <p class="font-normal text-xs">{{pub.day}}</p>
+  <span class="flex gap-0.5 items-center">
+    <span class="material-symbols-outlined text-lg group-hover:text-black">
+      confirmation_number
+    </span>
+    <p class="group-hover:text-black m-[0!important] text-xs font-normal">Free</p>
+  </span>
+  <p class="text-xs font-semibold capitalize">{{pub.author}}</p>
+</div>

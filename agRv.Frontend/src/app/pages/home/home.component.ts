@@ -28,6 +28,11 @@ export class HomeComponent {
       icon: "festival"
     },
     {
+      name: "Filmes",
+      link: "",
+      icon: "videocam"
+    },
+    {
       name: "PERFORMANCE E ARTES VISUAIS",
       link: "",
       icon: "theater_comedy"
@@ -38,9 +43,92 @@ export class HomeComponent {
       icon: "restaurant"
     },
     {
-      name: "SHOW",
+      name: "Notícias",
       link: "",
-      icon: "restaurant"
+      icon: "news "
+    }
+  ]
+
+  data: any[] = [
+    {
+      title: 'Chat-GPT for Profit: A Tehc Talk for Non-Techies',
+      day: 'Terça, 8 de Janeiro - 15hrs GMT-3',
+      author: 'josué pimentel',
+      tags: [
+        'Online'
+      ],
+      score: 123,
+      promoted: true
+    },
+    {
+      title: 'Chat-GPT for Profit: A Tehc Talk for Non-Techies',
+      day: 'Terça, 8 de Janeiro - 15hrs GMT-3',
+      author: 'josué pimentel',
+      tags: [
+        'Online'
+      ],
+      score: 130,
+      promoted: false
+    },
+    {
+      title: 'Chat-GPT for Profit: A Tehc Talk for Non-Techies',
+      day: 'Terça, 8 de Janeiro - 15hrs GMT-3',
+      author: 'josué pimentel',
+      tags: [
+        'Online'
+      ],
+      score: 123,
+      promoted: true
+    },
+    {
+      title: 'Chat-GPT for Profit: A Tehc Talk for Non-Techies',
+      day: 'Terça, 8 de Janeiro - 15hrs GMT-3',
+      author: 'josué pimentel',
+      tags: [
+        'Restaurante'
+      ],
+      score: 123,
+      promoted: false
+    },
+    {
+      title: 'Chat-GPT for Profit: A Tehc Talk for Non-Techies',
+      day: 'Terça, 8 de Janeiro - 15hrs GMT-3',
+      author: 'josué pimentel',
+      tags: [
+        'Online'
+      ],
+      score: 123,
+      promoted: true
+    },
+    {
+      title: 'Chat-GPT for Profit: A Tehc Talk for Non-Techies',
+      day: 'Terça, 8 de Janeiro - 15hrs GMT-3',
+      author: 'josué pimentel',
+      tags: [
+        'Online'
+      ],
+      score: 130,
+      promoted: false
+    },
+    {
+      title: 'Chat-GPT for Profit: A Tehc Talk for Non-Techies',
+      day: 'Terça, 8 de Janeiro - 15hrs GMT-3',
+      author: 'josué pimentel',
+      tags: [
+        'Online'
+      ],
+      score: 123,
+      promoted: true
+    },
+    {
+      title: 'Chat-GPT for Profit: A Tehc Talk for Non-Techies',
+      day: 'Terça, 8 de Janeiro - 15hrs GMT-3',
+      author: 'josué pimentel',
+      tags: [
+        'Restaurante'
+      ],
+      score: 123,
+      promoted: false
     }
   ]
 }
