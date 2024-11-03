@@ -11,7 +11,7 @@ export enum daysOfWeekEnum {
   Sabado = 'Sábado',
 }
 
-@Entity('Days_Week')
+@Entity('days_week')
 export class DaysWeekEntity extends BaseEntity {
   @Column({
     name: 'day_of_week',

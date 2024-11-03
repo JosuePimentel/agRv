@@ -1,7 +1,7 @@
 import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../Base/base.entity';
 
-@Entity('Url_Base')
+@Entity('url_base')
 export class UrlBaseEntity extends BaseEntity {
   @Column()
   url: string;

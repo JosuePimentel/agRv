@@ -1,5 +1,7 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
 import { BaseEntity } from '../Base/base.entity';
+import { GenreAccountEntity } from './genre-account.entity';
+import { AddressEntity } from '../LocationAggregate/address.entity';
 
 @Entity('accounts')
 export class AccountEntity extends BaseEntity {
@@ -17,4 +19,12 @@ export class AccountEntity extends BaseEntity {
 
   @Column()
   password: string;
+
+  @ManyToOne(() => GenreAccountEntity, (genreAccount) => genreAccount.account)
+  @JoinColumn({ name: 'genre_id' })
+  genreAccount: GenreAccountEntity;
+
+  @OneToOne(() => AddressEntity)
+  @JoinColumn({ name: 'address_id' })
+  address: AddressEntity;
 }
