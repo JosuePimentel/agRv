@@ -1,5 +1,9 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 import { BaseEntity } from '../Base/base.entity';
+import { FilmEntity } from './film.entity';
+import { CinemaEntity } from './cinema.entity';
+import { LinkPublicationEntity } from '../LinksAggregate/linkPublication.entity';
+import { ShowEntity } from './show.entity';
 
 export enum PublicationTypeEnum {
   'show',
@@ -42,4 +46,22 @@ export class PublicationEntity extends BaseEntity {
     default: PublicationTypeEnum.pub,
   })
   publicationTypeEnum: PublicationTypeEnum;
+
+  @OneToOne(() => FilmEntity)
+  @JoinColumn({ name: 'film_id' })
+  film: FilmEntity;
+
+  @OneToOne(() => CinemaEntity)
+  @JoinColumn({ name: 'cinema_id' })
+  cinema: CinemaEntity;
+
+  @OneToMany(
+    () => LinkPublicationEntity,
+    (linkPublication) => linkPublication.publication,
+  )
+  linkPublication: LinkPublicationEntity[];
+
+  @OneToOne(() => ShowEntity)
+  @JoinColumn({ name: 'show_id' })
+  show: ShowEntity;
 }

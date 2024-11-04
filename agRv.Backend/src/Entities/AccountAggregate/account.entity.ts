@@ -1,7 +1,15 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+} from 'typeorm';
 import { BaseEntity } from '../Base/base.entity';
 import { GenreAccountEntity } from './genre-account.entity';
 import { AddressEntity } from '../LocationAggregate/address.entity';
+import { LinkAccountEntity } from '../LinksAggregate/linkAccount.entity';
 
 @Entity('accounts')
 export class AccountEntity extends BaseEntity {
@@ -27,4 +35,7 @@ export class AccountEntity extends BaseEntity {
   @OneToOne(() => AddressEntity)
   @JoinColumn({ name: 'address_id' })
   address: AddressEntity;
+
+  @OneToMany(() => LinkAccountEntity, (linkAccount) => linkAccount.account)
+  linkAccount: LinkAccountEntity[];
 }
