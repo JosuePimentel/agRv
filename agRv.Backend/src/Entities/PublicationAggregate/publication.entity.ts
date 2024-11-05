@@ -4,6 +4,7 @@ import { FilmEntity } from './film.entity';
 import { CinemaEntity } from './cinema.entity';
 import { LinkPublicationEntity } from '../LinksAggregate/linkPublication.entity';
 import { ShowEntity } from './show.entity';
+import { RestaurantEntity } from './restaurant.entity';
 
 export enum PublicationTypeEnum {
   'show',
@@ -64,4 +65,8 @@ export class PublicationEntity extends BaseEntity {
   @OneToOne(() => ShowEntity)
   @JoinColumn({ name: 'show_id' })
   show: ShowEntity;
+
+  @OneToOne(() => RestaurantEntity)
+  @JoinColumn({ name: 'restaurant_id' })
+  restaurant: RestaurantEntity;
 }
