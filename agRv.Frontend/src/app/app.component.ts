@@ -9,7 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   host: {
-    class: 'block mx-[15%]'
+    class: 'block mx-[15%] relative min-h-dvh'
   },
 })
 export class AppComponent {}
