@@ -41,14 +41,18 @@ export class FilmEntity extends BaseEntity {
   })
   person: PersonEntity[];
 
-  @ManyToOne(() => PersonEntity, (person) => person.film)
+  @ManyToOne(() => PersonEntity, (person) => person.film, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'direction_person_id' })
   directionPerson: PersonEntity;
 
   @OneToMany(() => SectionEntity, (section) => section.film)
   section: SectionEntity[];
 
-  @ManyToOne(() => AgeRatingEntity, (ageRating) => ageRating.film)
+  @ManyToOne(() => AgeRatingEntity, (ageRating) => ageRating.film, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'age_rating_id' })
   ageRating: AgeRatingEntity;
 

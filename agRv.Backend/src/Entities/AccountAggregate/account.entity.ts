@@ -10,6 +10,7 @@ import { BaseEntity } from '../Base/base.entity';
 import { GenreAccountEntity } from './genre-account.entity';
 import { AddressEntity } from '../LocationAggregate/address.entity';
 import { LinkAccountEntity } from '../LinksAggregate/linkAccount.entity';
+import { PublicationEntity } from '../PublicationAggregate/publication.entity';
 
 @Entity('accounts')
 export class AccountEntity extends BaseEntity {
@@ -28,14 +29,19 @@ export class AccountEntity extends BaseEntity {
   @Column()
   password: string;
 
-  @ManyToOne(() => GenreAccountEntity, (genreAccount) => genreAccount.account)
+  @ManyToOne(() => GenreAccountEntity, (genreAccount) => genreAccount.account, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'genre_id' })
   genreAccount: GenreAccountEntity;
 
-  @OneToOne(() => AddressEntity)
+  @OneToOne(() => AddressEntity, { nullable: false })
   @JoinColumn({ name: 'address_id' })
   address: AddressEntity;
 
   @OneToMany(() => LinkAccountEntity, (linkAccount) => linkAccount.account)
   linkAccount: LinkAccountEntity[];
+
+  @OneToMany(() => PublicationEntity, (publication) => publication.account)
+  publication: PublicationEntity[];
 }

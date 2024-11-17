@@ -16,7 +16,9 @@ export class DayEntity extends BaseEntity {
   @Column({ name: 'end_time', type: 'timetz' })
   endTime: Date;
 
-  @ManyToOne(() => RestaurantEntity, (restaurant) => restaurant.day)
+  @ManyToOne(() => RestaurantEntity, (restaurant) => restaurant.day, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'restaurant_id' })
   restaurant: RestaurantEntity;
 }

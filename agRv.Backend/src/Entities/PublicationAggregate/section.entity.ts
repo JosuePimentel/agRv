@@ -19,7 +19,9 @@ export class SectionEntity extends BaseEntity {
   @Column()
   amount: number;
 
-  @ManyToOne(() => FilmEntity, (filme) => filme.section)
+  @ManyToOne(() => FilmEntity, (filme) => filme.section, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'film_id' })
   film: FilmEntity;
 
@@ -31,7 +33,9 @@ export class SectionEntity extends BaseEntity {
   })
   tagSection: TagSectionsEntity[];
 
-  @ManyToOne(() => CinemaEntity, (cinema) => cinema.section)
+  @ManyToOne(() => CinemaEntity, (cinema) => cinema.section, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'cinema_id' })
   cinema: CinemaEntity;
 }

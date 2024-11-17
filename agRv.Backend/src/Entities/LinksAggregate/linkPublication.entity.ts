@@ -8,13 +8,18 @@ export class LinkPublicationEntity extends BaseEntity {
   @Column()
   link: string;
 
-  @ManyToOne(() => UrlBaseEntity, (urlBase) => urlBase.linkPublication)
+  @ManyToOne(() => UrlBaseEntity, (urlBase) => urlBase.linkPublication, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'url_base_id' })
   urlBase: UrlBaseEntity;
 
   @ManyToOne(
     () => PublicationEntity,
     (publication) => publication.linkPublication,
+    {
+      nullable: false,
+    },
   )
   @JoinColumn({ name: 'publication_id' })
   publication: PublicationEntity;

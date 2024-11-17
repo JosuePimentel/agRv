@@ -17,7 +17,9 @@ export class PersonEntity extends BaseEntity {
   @OneToMany(() => FilmEntity, (film) => film.directionPerson)
   film: FilmEntity;
 
-  @ManyToOne(() => CountryEntity, (country) => country.person)
+  @ManyToOne(() => CountryEntity, (country) => country.person, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'country_id' })
   country: CountryEntity;
 }

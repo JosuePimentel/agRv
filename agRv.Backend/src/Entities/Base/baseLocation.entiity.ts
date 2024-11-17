@@ -5,7 +5,7 @@ export class BaseLocationEntity extends BaseEntity {
   @Column()
   name: string;
 
-  @Column({ type: 'point' })
+  @Column({ type: 'point', nullable: true })
   location: Point;
 
   @Column({ nullable: true })

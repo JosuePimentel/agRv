@@ -11,7 +11,9 @@ export class CityEntity extends BaseLocationEntity {
   @OneToMany(() => AddressEntity, (address) => address.city)
   address: AddressEntity[];
 
-  @ManyToOne(() => StateEntity, (state) => state.city)
+  @ManyToOne(() => StateEntity, (state) => state.city, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'state_id' })
   state: StateEntity;
 

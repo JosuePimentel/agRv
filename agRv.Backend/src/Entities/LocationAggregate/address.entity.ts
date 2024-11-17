@@ -10,7 +10,9 @@ export class AddressEntity extends BaseLocationEntity {
   @Column({ nullable: true })
   complement: string;
 
-  @ManyToOne(() => CityEntity, (city) => city.address)
+  @ManyToOne(() => CityEntity, (city) => city.address, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'city_id' })
   city: CityEntity;
 }
