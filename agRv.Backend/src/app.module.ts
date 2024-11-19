@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { GenreAccountModule } from './Modules/account-aggregate/genre-account.module';
 import { UrlBaseModule } from './Modules/LinksAggregate/url-base.module';
 import { LinkPublicationModule } from './Modules/LinksAggregate/link-publication.module';
 import { LinkAccountModule } from './Modules/LinksAggregate/link-account.module';
-import { AccountModule } from './Modules/account-aggregate/account.module';
-import { AuthModules } from './Modules/account-aggregate/auth/auth.module';
+import { GenreAccountModule } from './Modules/AccountAggregate/genre-account.module';
+import { AccountModule } from './Modules/AccountAggregate/account.module';
+import { AuthModules } from './Modules/AccountAggregate/auth/auth.module';
 
 @Module({
   imports: [

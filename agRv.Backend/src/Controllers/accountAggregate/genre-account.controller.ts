@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { GenreAccountDto } from "src/DTO's/AccountAggregate/genre-account.dto";
 import { GenreAccountModel } from 'src/Models/AccountAggregate/genre-account.model';
-import { AuthGuard } from 'src/Modules/account-aggregate/auth/auth.guard';
+import { AuthGuard } from 'src/Modules/AccountAggregate/auth/auth.guard';
 import { GenreAccountService } from 'src/Services/AccountAggregate/genre-account.service';
 
 @UseGuards(AuthGuard)
