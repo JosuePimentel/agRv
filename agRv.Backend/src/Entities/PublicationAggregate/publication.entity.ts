@@ -106,5 +106,11 @@ export class PublicationEntity extends BaseEntity {
       referencedColumnName: 'id',
     },
   })
-  publication: PublicationEntity[];
+  tags: TagPublicationEntity[];
+
+  @Column({ default: 0 })
+  score: number;
+
+  @Column({ default: false })
+  promoted: boolean;
 }

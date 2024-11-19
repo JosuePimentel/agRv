@@ -1,4 +1,4 @@
-import { IsDate, IsString, ValidateNested } from 'class-validator';
+import { IsDateString, IsString, ValidateNested } from 'class-validator';
 import { BaseModel } from '../Base/base.model';
 import { CountryModel } from '../LocationAggregate/country.model';
 import { Type } from 'class-transformer';
@@ -10,7 +10,7 @@ export class PersonModel extends BaseModel {
   @IsString()
   artisticName?: string;
 
-  @IsDate()
+  @IsDateString()
   birthDate?: Date;
 
   // film: FilmModel;

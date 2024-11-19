@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { GenreAccountDto } from "src/DTO's/AccountAggregate/genre-account.dto";
 import { GenreAccountEntity } from 'src/Entities/AccountAggregate/genre-account.entity';
@@ -12,9 +12,9 @@ export class GenreAccountService {
     private readonly genreAccountRepository: Repository<GenreAccountEntity>,
   ) {}
 
-  async create(newGenre: GenreAccountModel): Promise<GenreAccountDto> {
+  async create(model: GenreAccountModel): Promise<GenreAccountDto> {
     const genreAccountDB = new GenreAccountEntity();
-    genreAccountDB.name = newGenre.name;
+    genreAccountDB.name = model.name;
 
     const genreAccount: GenreAccountDto =
       await this.genreAccountRepository.save(genreAccountDB);
@@ -24,5 +24,39 @@ export class GenreAccountService {
 
   async findAll(): Promise<GenreAccountDto[]> {
     return (await this.genreAccountRepository.find()) ?? [];
+  }
+
+  async findOne(_id: string): Promise<GenreAccountDto> {
+    const genreAccount = await this.genreAccountRepository.findOne({
+      where: { id: _id },
+    });
+
+    if (!genreAccount) {
+      throw new NotFoundException(`Genre account with ID "${_id}" not found`);
+    }
+
+    return genreAccount;
+  }
+
+  async delete(_id: string): Promise<void> {
+    const genreAccount = await this.findOne(_id);
+
+    if (!genreAccount) {
+      throw new NotFoundException(`Genre account with ID "${_id}" not found`);
+    }
+
+    this.genreAccountRepository.delete(_id);
+  }
+
+  async update(_id: string, model: Partial<GenreAccountDto>) {
+    const genreAccount = await this.findOne(_id);
+
+    if (!genreAccount) {
+      throw new NotFoundException(`Genre account with ID "${_id}" not found`);
+    }
+
+    await this.genreAccountRepository.update(_id, model);
+
+    return await this.findOne(_id);
   }
 }

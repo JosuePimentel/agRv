@@ -1,4 +1,9 @@
-import { IsDate, IsNumber, IsString, ValidateNested } from 'class-validator';
+import {
+  IsDateString,
+  IsNumber,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
 import { BaseModel } from '../Base/base.model';
 import { Type } from 'class-transformer';
 import { GenreFilmModel } from './genre-film.model';
@@ -11,7 +16,7 @@ export class FilmModel extends BaseModel {
   @IsString()
   video: string;
 
-  @IsDate()
+  @IsDateString()
   dateDebut: Date;
 
   @IsNumber()

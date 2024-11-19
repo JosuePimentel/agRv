@@ -1,17 +1,17 @@
-import { IsDate } from 'class-validator';
+import { IsDateString } from 'class-validator';
 import { BaseModel } from '../Base/base.model';
 
 export class DayModel extends BaseModel {
-  @IsDate()
+  @IsDateString()
   beginDate: Date;
 
-  @IsDate()
+  @IsDateString()
   endDate: Date;
 
-  @IsDate()
+  @IsDateString()
   beginTime: Date;
 
-  @IsDate()
+  @IsDateString()
   endTime: Date;
 
   // restaurant: RestaurantModel;

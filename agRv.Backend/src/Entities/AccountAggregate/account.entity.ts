@@ -35,7 +35,7 @@ export class AccountEntity extends BaseEntity {
   @JoinColumn({ name: 'genre_id' })
   genreAccount: GenreAccountEntity;
 
-  @OneToOne(() => AddressEntity, { nullable: false })
+  @OneToOne(() => AddressEntity)
   @JoinColumn({ name: 'address_id' })
   address: AddressEntity;
 

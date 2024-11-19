@@ -39,7 +39,7 @@ export class FilmEntity extends BaseEntity {
     joinColumn: { name: 'film_id', referencedColumnName: 'id' },
     inverseJoinColumn: { name: 'person_id', referencedColumnName: 'id' },
   })
-  person: PersonEntity[];
+  cast: PersonEntity[];
 
   @ManyToOne(() => PersonEntity, (person) => person.film, {
     nullable: false,

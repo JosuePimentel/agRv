@@ -1,11 +1,11 @@
-import { IsDate, IsNumber, ValidateNested } from 'class-validator';
+import { IsDateString, IsNumber, ValidateNested } from 'class-validator';
 import { BaseModel } from '../Base/base.model';
 import { Type } from 'class-transformer';
 import { TagSectionsModel } from './tag-section.model';
 import { CinemaModel } from './cinema.model';
 
 export class SectionModel extends BaseModel {
-  @IsDate()
+  @IsDateString()
   date: Date;
 
   @IsNumber()

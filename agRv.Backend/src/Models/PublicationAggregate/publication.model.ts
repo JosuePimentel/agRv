@@ -5,7 +5,7 @@ import { TagPublicationModel } from './tag-publication.model';
 import { Type } from 'class-transformer';
 import { FilmModel } from './film.model';
 import { CinemaModel } from './cinema.model';
-import { LinkPublicationModel } from '../LinksAggregate/linkPublication.model';
+import { LinkPublicationModel } from '../LinksAggregate/link-publication.model';
 import { AddressModel } from '../LocationAggregate/address.model';
 import { AccountModel } from '../AccountAggregate/account.model';
 import { ShowModel } from './show.model';
@@ -70,5 +70,12 @@ export class PublicationModel extends BaseModel {
 
   @ValidateNested()
   @Type(() => TagPublicationModel)
-  tagPublicationModel: TagPublicationModel;
+  tags: TagPublicationModel;
+
+  // acho que nao precisa das linhas abaixo
+  // @IsNumber()
+  // score: number;
+
+  // @IsBoolean()
+  // promoted: boolean;
 }

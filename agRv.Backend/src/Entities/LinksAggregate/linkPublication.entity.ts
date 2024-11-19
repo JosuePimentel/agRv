@@ -17,9 +17,6 @@ export class LinkPublicationEntity extends BaseEntity {
   @ManyToOne(
     () => PublicationEntity,
     (publication) => publication.linkPublication,
-    {
-      nullable: false,
-    },
   )
   @JoinColumn({ name: 'publication_id' })
   publication: PublicationEntity;

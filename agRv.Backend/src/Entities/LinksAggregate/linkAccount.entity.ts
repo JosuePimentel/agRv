@@ -14,9 +14,7 @@ export class LinkAccountEntity extends BaseEntity {
   @JoinColumn({ name: 'url_base_id' })
   urlBase: UrlBaseEntity;
 
-  @ManyToOne(() => AccountEntity, (account) => account.linkAccount, {
-    nullable: false,
-  })
+  @ManyToOne(() => AccountEntity, (account) => account.linkAccount)
   @JoinColumn({ name: 'account_id' })
   account: AccountEntity;
 }
