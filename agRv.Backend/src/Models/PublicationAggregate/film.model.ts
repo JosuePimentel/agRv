@@ -1,16 +1,11 @@
 import {
+  IsArray,
   IsDateString,
   IsNumber,
+  IsOptional,
   IsString,
-  ValidateNested,
 } from 'class-validator';
 import { BaseModel } from '../Base/base.model';
-import { Type } from 'class-transformer';
-import { GenreFilmModel } from './genre-film.model';
-import { PersonModel } from './person.model';
-import { SectionModel } from './section.model';
-import { AgeRatingModel } from './age-rating.model';
-import { ProductionCompanyModel } from './production-company.model';
 
 export class FilmModel extends BaseModel {
   @IsString()
@@ -22,26 +17,28 @@ export class FilmModel extends BaseModel {
   @IsNumber()
   duration: number;
 
-  @ValidateNested({ each: true })
-  @Type(() => GenreFilmModel)
-  genreFilm: GenreFilmModel[];
+  @IsArray()
+  @IsString({ each: true })
+  genreFilmId: string[];
 
-  @ValidateNested({ each: true })
-  @Type(() => PersonModel)
-  cast: PersonModel[];
+  @IsOptional({ each: true })
+  @IsArray()
+  @IsString({ each: true })
+  castIds?: string[];
 
-  @ValidateNested()
-  @Type(() => PersonModel)
-  directionPerson: PersonModel;
+  @IsString()
+  directionPersonId: string;
 
   // @OneToMany(() => SectionEntity, (section) => section.film)
-  section: SectionModel[];
+  @IsArray()
+  @IsString({ each: true })
+  sectionId: string[];
 
-  @ValidateNested()
-  @Type(() => AgeRatingModel)
-  ageRating: AgeRatingModel;
+  @IsString()
+  ageRatingId: string;
 
-  @ValidateNested({ each: true })
-  @Type(() => ProductionCompanyModel)
-  productionCompany: ProductionCompanyModel[];
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  productionCompanyId: string[];
 }

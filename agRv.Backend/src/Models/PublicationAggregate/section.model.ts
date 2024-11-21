@@ -1,8 +1,5 @@
-import { IsDateString, IsNumber, ValidateNested } from 'class-validator';
+import { IsArray, IsDateString, IsNumber, IsString } from 'class-validator';
 import { BaseModel } from '../Base/base.model';
-import { Type } from 'class-transformer';
-import { TagSectionsModel } from './tag-section.model';
-import { CinemaModel } from './cinema.model';
 
 export class SectionModel extends BaseModel {
   @IsDateString()
@@ -13,11 +10,10 @@ export class SectionModel extends BaseModel {
 
   // film: FilmModel;
 
-  @ValidateNested({ each: true })
-  @Type(() => TagSectionsModel)
-  tagSection: TagSectionsModel[];
+  @IsArray()
+  @IsString({ each: true })
+  tagSectionId: string[];
 
-  @ValidateNested()
-  @Type(() => CinemaModel)
-  cinema: CinemaModel;
+  @IsString()
+  cinemaId: string;
 }

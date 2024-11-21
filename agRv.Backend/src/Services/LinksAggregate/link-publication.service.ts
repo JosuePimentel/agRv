@@ -38,16 +38,13 @@ export class LinkPublicationService {
 
   // async findAll(): Promise<LinkPublicationDto[]> {
   //   return (
-  //     (await this.linkPublicationRepository.find({
-  //       relations: { urlBase: true },
-  //     })) ?? []
+  //     (await this.linkPublicationRepository.find()) ?? []
   //   );
   // }
 
   async findOne(_id: string): Promise<LinkPublicationDto> {
     const linkPublication = await this.linkPublicationRepository.findOne({
       where: { id: _id },
-      relations: { urlBase: true },
     });
 
     if (!linkPublication) {

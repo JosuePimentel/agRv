@@ -1,6 +1,7 @@
 import {
   IsDateString,
   IsEmail,
+  IsNotEmpty,
   IsOptional,
   IsPhoneNumber,
   IsString,
@@ -17,20 +18,20 @@ export class AccountModel extends BaseModel {
   email: string;
   @IsPhoneNumber()
   @IsOptional()
-  phone: string;
+  phone?: string;
   @IsStrongPassword()
   password: string;
 
   // @ValidateNested()
   // @Type(() => GenreAccountModel)
-  @IsString()
+  @IsNotEmpty()
   genreAccountId: string;
 
   // @ValidateNested()
   // @Type(() => AddressModel)
   @IsOptional()
   @IsString()
-  addressId: string;
+  addressId?: string;
 
   // linkAccount: LinkAccountModel[];
   // publication: PublicationModel[];

@@ -6,9 +6,6 @@ export class UrlBaseModel extends BaseModel {
   url: string;
 
   @IsString()
-  icon: string;
-
-  @IsString()
   name: string;
 
   // linkAccount: LinkAccountModel[];

@@ -9,6 +9,7 @@ export class LinkPublicationModel extends BaseModel {
 
   // @ValidateNested()
   // @Type(() => UrlBaseModel)
+  @IsString()
   urlBaseId: string;
 
   // @ValidateNested()

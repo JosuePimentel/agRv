@@ -39,7 +39,6 @@ export class LinkAccountService {
   async findOne(_id: string): Promise<LinkAccountDto> {
     const linkPublication = await this.linkPublicationRepository.findOne({
       where: { id: _id },
-      relations: { urlBase: true },
     });
 
     if (!linkPublication) {

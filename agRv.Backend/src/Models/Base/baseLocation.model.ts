@@ -1,11 +1,13 @@
-import { Point } from 'typeorm';
 import { BaseModel } from './base.model';
-import { IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class BaseLocationModel extends BaseModel {
   @IsString()
   name: string;
-  location?: Point;
+  @IsOptional()
   @IsString()
+  location?: string;
+  @IsString()
+  @IsOptional()
   abbr?: string;
 }

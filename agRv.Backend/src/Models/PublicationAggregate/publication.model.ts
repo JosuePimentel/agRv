@@ -1,15 +1,12 @@
-import { IsEnum, IsString, MaxLength, ValidateNested } from 'class-validator';
+import {
+  IsArray,
+  IsEnum,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from 'class-validator';
 import { BaseModel } from '../Base/base.model';
 import { PublicationTypeEnum } from 'src/Entities/PublicationAggregate/publication.entity';
-import { TagPublicationModel } from './tag-publication.model';
-import { Type } from 'class-transformer';
-import { FilmModel } from './film.model';
-import { CinemaModel } from './cinema.model';
-import { LinkPublicationModel } from '../LinksAggregate/link-publication.model';
-import { AddressModel } from '../LocationAggregate/address.model';
-import { AccountModel } from '../AccountAggregate/account.model';
-import { ShowModel } from './show.model';
-import { RestaurantModel } from './restaurant.model';
 
 export class PublicationModel extends BaseModel {
   @IsString()
@@ -29,6 +26,7 @@ export class PublicationModel extends BaseModel {
   // linkSite: string;
 
   @IsString()
+  @IsOptional()
   phone?: string;
 
   @IsString()
@@ -40,37 +38,35 @@ export class PublicationModel extends BaseModel {
   @IsEnum(PublicationTypeEnum)
   publicationTypeEnum: PublicationTypeEnum;
 
-  @ValidateNested()
-  @Type(() => FilmModel)
-  film?: FilmModel;
+  @IsOptional()
+  @IsString()
+  filmId?: string;
 
-  @ValidateNested()
-  @Type(() => CinemaModel)
-  cinema?: CinemaModel;
+  @IsOptional()
+  @IsString()
+  cinemaId?: string;
 
-  @ValidateNested({ each: true })
-  @Type(() => LinkPublicationModel)
-  linkPublication: LinkPublicationModel[];
+  @IsArray()
+  @IsString({ each: true })
+  linkPublicationId: string[];
 
-  @ValidateNested()
-  @Type(() => ShowModel)
-  show?: ShowModel;
+  @IsOptional()
+  @IsString()
+  showId?: string;
 
-  @ValidateNested()
-  @Type(() => RestaurantModel)
-  restaurant?: RestaurantModel;
+  @IsOptional()
+  @IsString()
+  restaurantId?: string;
 
-  @ValidateNested()
-  @Type(() => AddressModel)
-  address: AddressModel;
+  @IsOptional()
+  @IsString()
+  addressId?: string;
 
-  @ValidateNested()
-  @Type(() => AccountModel)
-  account: AccountModel;
+  @IsString()
+  accountId: string;
 
-  @ValidateNested()
-  @Type(() => TagPublicationModel)
-  tags: TagPublicationModel;
+  @IsString()
+  tagsId: string;
 
   // acho que nao precisa das linhas abaixo
   // @IsNumber()

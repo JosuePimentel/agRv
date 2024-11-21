@@ -13,10 +13,11 @@ export class CityEntity extends BaseLocationEntity {
 
   @ManyToOne(() => StateEntity, (state) => state.city, {
     nullable: false,
+    eager: true,
   })
   @JoinColumn({ name: 'state_id' })
   state: StateEntity;
 
-  @OneToMany(() => StateEntity, (state) => state.capitalCity)
-  capitalOfState: StateEntity[];
+  // @OneToMany(() => StateEntity, (state) => state.capitalCity)
+  // capitalOfState: StateEntity[];
 }

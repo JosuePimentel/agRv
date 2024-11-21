@@ -7,6 +7,7 @@ export class LinkAccountModel extends BaseModel {
 
   // @ValidateNested()
   // @Type(() => UrlBaseModel)
+  @IsString()
   urlBaseId: string;
 
   // account: AccountModel;

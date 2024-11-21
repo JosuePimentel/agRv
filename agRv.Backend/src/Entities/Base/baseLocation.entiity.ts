@@ -1,4 +1,4 @@
-import { Column, Point } from 'typeorm';
+import { Column } from 'typeorm';
 import { BaseEntity } from './base.entity';
 
 export class BaseLocationEntity extends BaseEntity {
@@ -6,7 +6,7 @@ export class BaseLocationEntity extends BaseEntity {
   name: string;
 
   @Column({ type: 'point', nullable: true })
-  location: Point;
+  location: string;
 
   @Column({ nullable: true })
   abbr: string;

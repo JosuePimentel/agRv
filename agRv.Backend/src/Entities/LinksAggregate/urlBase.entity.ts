@@ -9,9 +9,6 @@ export class UrlBaseEntity extends BaseEntity {
   url: string;
 
   @Column()
-  icon: string;
-
-  @Column()
   name: string;
 
   @OneToMany(() => LinkAccountEntity, (linkAcc) => linkAcc.urlBase)

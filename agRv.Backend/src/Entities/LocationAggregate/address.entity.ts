@@ -12,6 +12,7 @@ export class AddressEntity extends BaseLocationEntity {
 
   @ManyToOne(() => CityEntity, (city) => city.address, {
     nullable: false,
+    eager: true,
   })
   @JoinColumn({ name: 'city_id' })
   city: CityEntity;

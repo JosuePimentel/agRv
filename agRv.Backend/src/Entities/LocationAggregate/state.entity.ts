@@ -7,6 +7,7 @@ import { CityEntity } from './city.entity';
 export class StateEntity extends BaseLocationEntity {
   @ManyToOne(() => CountryEntity, (Country) => Country.state, {
     nullable: false,
+    eager: true,
   })
   @JoinColumn({ name: 'country_id' })
   country: CountryEntity;
@@ -14,7 +15,7 @@ export class StateEntity extends BaseLocationEntity {
   @OneToMany(() => CityEntity, (city) => city.state)
   city: CityEntity[];
 
-  @ManyToOne(() => CityEntity, (city) => city.capitalOfState)
-  @JoinColumn({ name: 'capital_city_id' })
-  capitalCity: CityEntity;
+  // @ManyToOne(() => CityEntity, (city) => city.capitalOfState)
+  // @JoinColumn({ name: 'capital_city_id' })
+  // capitalCity: CityEntity;
 }

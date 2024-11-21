@@ -7,6 +7,10 @@ import { LinkAccountModule } from './Modules/LinksAggregate/link-account.module'
 import { GenreAccountModule } from './Modules/AccountAggregate/genre-account.module';
 import { AccountModule } from './Modules/AccountAggregate/account.module';
 import { AuthModules } from './Modules/AccountAggregate/auth/auth.module';
+import { CountryModule } from './Modules/LocationAggregate/country.module';
+import { StateModule } from './Modules/LocationAggregate/state.module';
+import { CityModule } from './Modules/LocationAggregate/city.module';
+import { AddressModule } from './Modules/LocationAggregate/address.module';
 
 @Module({
   imports: [
@@ -27,6 +31,10 @@ import { AuthModules } from './Modules/AccountAggregate/auth/auth.module';
     LinkAccountModule,
     AccountModule,
     AuthModules,
+    CountryModule,
+    StateModule,
+    CityModule,
+    AddressModule,
   ],
   controllers: [],
   providers: [],
