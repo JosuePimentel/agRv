@@ -1,6 +1,6 @@
 import { BaseDto } from '../Base/base.dto';
-import { DayDto } from './day.dto';
+import { DaysOpenDto } from './days-open.dto';
 
 export class RestaurantDto extends BaseDto {
-  day: DayDto[];
+  daysOpen: DaysOpenDto[];
 }

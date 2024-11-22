@@ -11,6 +11,19 @@ import { CountryModule } from './Modules/LocationAggregate/country.module';
 import { StateModule } from './Modules/LocationAggregate/state.module';
 import { CityModule } from './Modules/LocationAggregate/city.module';
 import { AddressModule } from './Modules/LocationAggregate/address.module';
+import { AgeRatingModule } from './Modules/PublicationAggregate/age-rating.module';
+import { CinemaModule } from './Modules/PublicationAggregate/cinema.module';
+import { FilmModule } from './Modules/PublicationAggregate/film.module';
+import { GenreFilmModule } from './Modules/PublicationAggregate/genre-film.module';
+import { PersonModule } from './Modules/PublicationAggregate/person.module';
+import { ProductionCompanyModule } from './Modules/PublicationAggregate/production-company.module';
+import { PublicationModule } from './Modules/PublicationAggregate/publication.module';
+import { RestaurantModule } from './Modules/PublicationAggregate/restaurant.module';
+import { SectionModule } from './Modules/PublicationAggregate/section.module';
+import { ShowModule } from './Modules/PublicationAggregate/show.module';
+import { TagPublicationModule } from './Modules/PublicationAggregate/tag-publication.module';
+import { TagSectionModule } from './Modules/PublicationAggregate/tag-section.module';
+import { DaysOpenModule } from './Modules/PublicationAggregate/days-open.module';
 
 @Module({
   imports: [
@@ -35,6 +48,19 @@ import { AddressModule } from './Modules/LocationAggregate/address.module';
     StateModule,
     CityModule,
     AddressModule,
+    AgeRatingModule,
+    CinemaModule,
+    FilmModule,
+    GenreFilmModule,
+    PersonModule,
+    ProductionCompanyModule,
+    PublicationModule,
+    RestaurantModule,
+    SectionModule,
+    ShowModule,
+    TagPublicationModule,
+    TagSectionModule,
+    DaysOpenModule,
   ],
   controllers: [],
   providers: [],
