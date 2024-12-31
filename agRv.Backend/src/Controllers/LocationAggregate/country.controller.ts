@@ -1,47 +1,35 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpCode,
-  Param,
-  Patch,
-  Post,
-} from '@nestjs/common';
-import { CountryDto } from "src/DTO's/LocationAggregate/country.dto";
-import { CountryModel } from 'src/Models/LocationAggregate/country.model';
 import { CountryService } from 'src/Services/LocationAggregate/country.service';
+import { BaseController } from '../Base/base.controller';
+import { Controller } from '@nestjs/common';
+import { CountryEntity } from 'src/Entities/LocationAggregate/country.entity';
 
 @Controller('country')
-export class CountryController {
-  constructor(private readonly countryService: CountryService) {}
-
-  @Post()
-  async create(@Body() model: CountryModel): Promise<CountryDto> {
-    return await this.countryService.create(model);
+export class CountryController extends BaseController<CountryEntity> {
+  constructor(private readonly service: CountryService) {
+    super(service);
   }
 
-  @Get()
-  async findAll(): Promise<CountryDto[]> {
-    return await this.countryService.findAll();
-  }
+  // @Post()
+  // async create(@Body() model: CountryEntity): Promise<CountryDto> {
+  //   return await this.service.create(model);
+  // }
 
-  @Get(':id')
-  async findOne(@Param('id') _id: string) {
-    return await this.countryService.findOne(_id);
-  }
+  // @Get(':id')
+  // async findOne(@Param('id') id: string) {
+  //   return await this.service.findOne({ where: { id } });
+  // }
 
-  @Patch(':id')
-  async update(
-    @Param('id') _id: string,
-    @Body() dto: Partial<CountryDto>,
-  ): Promise<CountryDto> {
-    return this.countryService.update(_id, dto);
-  }
+  // @Patch(':id')
+  // async update(
+  //   @Param('id') id: string,
+  //   @Body() partialEntity: QueryDeepPartialEntity<CountryEntity>,
+  // ): Promise<void> {
+  //   this.service.update({ id }, partialEntity);
+  // }
 
-  @Delete(':id')
-  @HttpCode(204)
-  async delete(@Param('id') _id: string): Promise<void> {
-    await this.countryService.delete(_id);
-  }
+  // @Delete(':id')
+  // @HttpCode(204)
+  // async delete(@Param('id') id: string): Promise<void> {
+  //   await this.service.delete({ id });
+  // }
 }
