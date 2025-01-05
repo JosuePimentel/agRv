@@ -19,5 +19,5 @@ export class RestaurantEntity extends BaseEntity {
       referencedColumnName: 'id',
     },
   })
-  daysOpen: DaysOpenEntity[];
+  daysOpenId: string[];
 }

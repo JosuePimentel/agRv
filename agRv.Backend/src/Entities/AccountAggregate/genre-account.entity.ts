@@ -4,9 +4,9 @@ import { AccountEntity } from './account.entity';
 
 @Entity('genre_accounts')
 export class GenreAccountEntity extends BaseEntity {
-  @Column()
+  @Column({ length: 30 })
   name: string;
 
-  @OneToMany(() => AccountEntity, (account) => account.genreAccount)
-  account: AccountEntity[];
+  @OneToMany(() => AccountEntity, (account) => account.genreAccountId)
+  accountId: string[];
 }

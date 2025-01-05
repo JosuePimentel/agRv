@@ -19,11 +19,11 @@ export class SectionEntity extends BaseEntity {
   @Column()
   amount: number;
 
-  @ManyToOne(() => FilmEntity, (filme) => filme.section, {
+  @ManyToOne(() => FilmEntity, (filme) => filme.sectionId, {
     nullable: false,
   })
   @JoinColumn({ name: 'film_id' })
-  film: FilmEntity;
+  filmId: string;
 
   @ManyToMany(() => TagSectionsEntity)
   @JoinTable({
@@ -31,11 +31,11 @@ export class SectionEntity extends BaseEntity {
     joinColumn: { name: 'section_id', referencedColumnName: 'id' },
     inverseJoinColumn: { name: 'tag_section_id', referencedColumnName: 'id' },
   })
-  tagSection: TagSectionsEntity[];
+  tagSectionId: string[];
 
-  @ManyToOne(() => CinemaEntity, (cinema) => cinema.section, {
+  @ManyToOne(() => CinemaEntity, (cinema) => cinema.sectionId, {
     nullable: false,
   })
   @JoinColumn({ name: 'cinema_id' })
-  cinema: CinemaEntity;
+  cinemaId: string;
 }

@@ -8,8 +8,8 @@ import { BaseService } from '../Base/base.service';
 export class CountryService extends BaseService<CountryEntity> {
   constructor(
     @InjectRepository(CountryEntity)
-    private readonly countryRepository: Repository<CountryEntity>,
+    private readonly repo: Repository<CountryEntity>,
   ) {
-    super(countryRepository);
+    super(repo);
   }
 }

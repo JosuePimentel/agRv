@@ -7,6 +7,6 @@ export class AgeRatingEntity extends BaseEntity {
   @Column()
   age: number;
 
-  @OneToMany(() => FilmEntity, (film) => film.ageRating)
-  film: FilmEntity[];
+  @OneToMany(() => FilmEntity, (film) => film.ageRatingId)
+  filmId: string[];
 }

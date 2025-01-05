@@ -4,6 +4,6 @@ import { SectionEntity } from './section.entity';
 
 @Entity('cinemas')
 export class CinemaEntity extends BaseEntity {
-  @OneToMany(() => SectionEntity, (section) => section.cinema)
-  section: SectionEntity[];
+  @OneToMany(() => SectionEntity, (section) => section.cinemaId)
+  sectionId: string[];
 }

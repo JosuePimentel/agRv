@@ -8,16 +8,14 @@ export class LinkPublicationEntity extends BaseEntity {
   @Column()
   link: string;
 
-  @ManyToOne(() => UrlBaseEntity, (urlBase) => urlBase.linkPublication, {
+  @ManyToOne(() => UrlBaseEntity, {
     nullable: false,
+    eager: true,
   })
   @JoinColumn({ name: 'url_base_id' })
-  urlBase: UrlBaseEntity;
+  urlBaseId: string;
 
-  @ManyToOne(
-    () => PublicationEntity,
-    (publication) => publication.linkPublication,
-  )
+  @ManyToOne(() => PublicationEntity, { eager: true })
   @JoinColumn({ name: 'publication_id' })
-  publication: PublicationEntity;
+  publicationId: string;
 }

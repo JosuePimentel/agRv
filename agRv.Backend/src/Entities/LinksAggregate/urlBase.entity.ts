@@ -5,15 +5,15 @@ import { LinkPublicationEntity } from './linkPublication.entity';
 
 @Entity('url_base')
 export class UrlBaseEntity extends BaseEntity {
-  @Column()
+  @Column({ length: 50, unique: true })
   url: string;
 
-  @Column()
+  @Column({ length: 50 })
   name: string;
 
-  @OneToMany(() => LinkAccountEntity, (linkAcc) => linkAcc.urlBase)
-  linkAccount: LinkAccountEntity[];
+  @OneToMany(() => LinkAccountEntity, (linkAcc) => linkAcc.urlBaseId)
+  linkAccountId: string[];
 
-  @OneToMany(() => LinkPublicationEntity, (linkPub) => linkPub.urlBase)
-  linkPublication: LinkPublicationEntity[];
+  @OneToMany(() => LinkPublicationEntity, (linkPub) => linkPub.urlBaseId)
+  linkPublicationId: string[];
 }

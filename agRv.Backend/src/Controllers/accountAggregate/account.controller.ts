@@ -1,14 +1,11 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { AccountDto } from "src/DTO's/AccountAggregate/account.dto";
-import { AccountModel } from 'src/Models/AccountAggregate/account.model';
+import { Controller } from '@nestjs/common';
 import { AccountService } from 'src/Services/AccountAggregate/account.service';
+import { BaseController } from '../Base/base.controller';
+import { AccountEntity } from 'src/Entities/AccountAggregate/account.entity';
 
 @Controller('account')
-export class AccountController {
-  constructor(private readonly accountService: AccountService) {}
-
-  @Post()
-  async create(@Body() model: AccountModel): Promise<AccountDto> {
-    return await this.accountService.create(model);
+export class AccountController extends BaseController<AccountEntity> {
+  constructor(private readonly service: AccountService) {
+    super(service);
   }
 }

@@ -4,16 +4,19 @@ import { CityEntity } from './city.entity';
 
 @Entity('addresses')
 export class AddressEntity extends BaseLocationEntity {
-  @Column()
+  @Column({ length: 10 })
   CEP: string;
 
   @Column({ nullable: true })
   complement: string;
 
-  @ManyToOne(() => CityEntity, (city) => city.address, {
+  @Column()
+  neighborhood: string;
+
+  @ManyToOne(() => CityEntity, {
     nullable: false,
     eager: true,
   })
   @JoinColumn({ name: 'city_id' })
-  city: CityEntity;
+  cityId: string;
 }

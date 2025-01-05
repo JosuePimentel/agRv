@@ -14,7 +14,7 @@ import { PublicationEntity } from '../PublicationAggregate/publication.entity';
 
 @Entity('accounts')
 export class AccountEntity extends BaseEntity {
-  @Column()
+  @Column({ length: 200 })
   name: string;
 
   @Column({ type: 'date', name: 'birth_date' })
@@ -23,25 +23,29 @@ export class AccountEntity extends BaseEntity {
   @Column()
   email: string;
 
+  @Column({ unique: true })
+  CPF: string;
+
   @Column({ nullable: true })
   phone: string;
 
   @Column()
   password: string;
 
-  @ManyToOne(() => GenreAccountEntity, (genreAccount) => genreAccount.account, {
+  @ManyToOne(() => GenreAccountEntity, {
     nullable: false,
+    eager: true,
   })
   @JoinColumn({ name: 'genre_id' })
-  genreAccount: GenreAccountEntity;
+  genreAccountId: string;
 
-  @OneToOne(() => AddressEntity)
+  @OneToOne(() => AddressEntity, { eager: true, nullable: false })
   @JoinColumn({ name: 'address_id' })
-  address: AddressEntity;
+  addressId: string;
 
-  @OneToMany(() => LinkAccountEntity, (linkAccount) => linkAccount.account)
-  linkAccount: LinkAccountEntity[];
+  @OneToMany(() => LinkAccountEntity, (linkAccount) => linkAccount.accountId)
+  linkAccountId: string[];
 
-  @OneToMany(() => PublicationEntity, (publication) => publication.account)
-  publication: PublicationEntity[];
+  @OneToMany(() => PublicationEntity, (publication) => publication.accountId)
+  publicationId: string[];
 }

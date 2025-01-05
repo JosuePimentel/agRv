@@ -6,33 +6,36 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { BaseEntity } from 'src/Entities/Base/base.entity';
+import { AuthGuard } from 'src/Modules/AccountAggregate/auth/auth.guard';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 
-export abstract class BaseController<TEntity extends BaseEntity> {
+// @UseGuards(AuthGuard)
+export abstract class BaseController<T extends BaseEntity> {
   constructor(protected readonly s: any) {}
 
   @Post()
-  async create(@Body() entity: TEntity): Promise<TEntity> {
+  async create(@Body() entity: T): Promise<T> {
     return await this.s.create(entity);
   }
 
   @Patch(':id')
   async update(
     @Param('id') id: string,
-    @Body() partialEntity: QueryDeepPartialEntity<TEntity>,
+    @Body() partialEntity: QueryDeepPartialEntity<T>,
   ): Promise<void> {
     this.s.update({ id }, partialEntity);
   }
 
   @Get()
-  async findAll(): Promise<TEntity[]> {
+  async findAll(): Promise<T[]> {
     return await this.s.findAll();
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string): Promise<T> {
     return await this.s.findOne({ where: { id } });
   }
 

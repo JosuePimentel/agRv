@@ -5,19 +5,16 @@ import { StateEntity } from './state.entity';
 
 @Entity('cities')
 export class CityEntity extends BaseLocationEntity {
-  @Column()
+  @Column({ length: 10 })
   CEP: string;
 
-  @OneToMany(() => AddressEntity, (address) => address.city)
-  address: AddressEntity[];
+  @OneToMany(() => AddressEntity, (address) => address.cityId)
+  addressId: string[];
 
-  @ManyToOne(() => StateEntity, (state) => state.city, {
+  @ManyToOne(() => StateEntity, {
     nullable: false,
     eager: true,
   })
   @JoinColumn({ name: 'state_id' })
-  state: StateEntity;
-
-  // @OneToMany(() => StateEntity, (state) => state.capitalCity)
-  // capitalOfState: StateEntity[];
+  stateId: string;
 }

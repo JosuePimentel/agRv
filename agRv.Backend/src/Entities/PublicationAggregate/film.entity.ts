@@ -31,7 +31,7 @@ export class FilmEntity extends BaseEntity {
     joinColumn: { name: 'film_id', referencedColumnName: 'id' },
     inverseJoinColumn: { name: 'genre_film_id', referencedColumnName: 'id' },
   })
-  genreFilm: GenreFilmEntity[];
+  genreFilmId: string[];
 
   @ManyToMany(() => PersonEntity)
   @JoinTable({
@@ -39,22 +39,22 @@ export class FilmEntity extends BaseEntity {
     joinColumn: { name: 'film_id', referencedColumnName: 'id' },
     inverseJoinColumn: { name: 'person_id', referencedColumnName: 'id' },
   })
-  cast: PersonEntity[];
+  castId: string[];
 
-  @ManyToOne(() => PersonEntity, (person) => person.film, {
+  @ManyToOne(() => PersonEntity, (person) => person.filmId, {
     nullable: false,
   })
   @JoinColumn({ name: 'direction_person_id' })
-  directionPerson: PersonEntity;
+  directionPersonId: string;
 
-  @OneToMany(() => SectionEntity, (section) => section.film)
-  section: SectionEntity[];
+  @OneToMany(() => SectionEntity, (section) => section.filmId)
+  sectionId: string[];
 
-  @ManyToOne(() => AgeRatingEntity, (ageRating) => ageRating.film, {
+  @ManyToOne(() => AgeRatingEntity, (ageRating) => ageRating.filmId, {
     nullable: false,
   })
   @JoinColumn({ name: 'age_rating_id' })
-  ageRating: AgeRatingEntity;
+  ageRatingId: string;
 
   @ManyToMany(() => ProductionCompanyEntity)
   @JoinTable({
@@ -68,5 +68,5 @@ export class FilmEntity extends BaseEntity {
       referencedColumnName: 'id',
     },
   })
-  productionCompany: ProductionCompanyEntity[];
+  productionCompanyId: string[];
 }

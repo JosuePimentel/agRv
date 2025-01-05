@@ -14,12 +14,12 @@ export class PersonEntity extends BaseEntity {
   @Column({ type: 'date', name: 'birth_date', nullable: true })
   birthDate: Date;
 
-  @OneToMany(() => FilmEntity, (film) => film.directionPerson)
-  film: FilmEntity;
+  @OneToMany(() => FilmEntity, (film) => film.directionPersonId)
+  filmId: string;
 
-  @ManyToOne(() => CountryEntity, (country) => country.person, {
+  @ManyToOne(() => CountryEntity, {
     nullable: false,
   })
   @JoinColumn({ name: 'country_id' })
-  country: CountryEntity;
+  countryId: string;
 }

@@ -8,13 +8,14 @@ export class LinkAccountEntity extends BaseEntity {
   @Column()
   link: string;
 
-  @ManyToOne(() => UrlBaseEntity, (urlBase) => urlBase.linkAccount, {
+  @ManyToOne(() => UrlBaseEntity, {
     nullable: false,
+    eager: true,
   })
   @JoinColumn({ name: 'url_base_id' })
-  urlBase: UrlBaseEntity;
+  urlBaseId: string;
 
-  @ManyToOne(() => AccountEntity, (account) => account.linkAccount)
+  @ManyToOne(() => AccountEntity, { eager: true })
   @JoinColumn({ name: 'account_id' })
-  account: AccountEntity;
+  accountId: string;
 }

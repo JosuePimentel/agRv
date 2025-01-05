@@ -62,37 +62,37 @@ export class PublicationEntity extends BaseEntity {
 
   @OneToOne(() => FilmEntity)
   @JoinColumn({ name: 'film_id' })
-  film: FilmEntity;
+  filmId: string;
 
   @OneToOne(() => CinemaEntity)
   @JoinColumn({ name: 'cinema_id' })
-  cinema: CinemaEntity;
+  cinemaId: string;
 
   @OneToMany(
     () => LinkPublicationEntity,
-    (linkPublication) => linkPublication.publication,
+    (linkPublication) => linkPublication.publicationId,
   )
-  linkPublication: LinkPublicationEntity[];
+  linkPublicationId: string[];
 
   @OneToOne(() => ShowEntity)
   @JoinColumn({ name: 'show_id' })
-  show: ShowEntity;
+  showId: string;
 
   @OneToOne(() => RestaurantEntity)
   @JoinColumn({ name: 'restaurant_id' })
-  restaurant: RestaurantEntity;
+  restaurantId: string;
 
   @OneToOne(() => AddressEntity, {
     nullable: false,
   })
   @JoinColumn({ name: 'address_id' })
-  address: AddressEntity;
+  addressId: string;
 
-  @ManyToOne(() => AccountEntity, (account) => account.publication, {
+  @ManyToOne(() => AccountEntity, (account) => account.publicationId, {
     nullable: false,
   })
   @JoinColumn({ name: 'account_id' })
-  account: AccountEntity;
+  accountId: string;
 
   @ManyToMany(() => TagPublicationEntity)
   @JoinTable({
@@ -106,7 +106,7 @@ export class PublicationEntity extends BaseEntity {
       referencedColumnName: 'id',
     },
   })
-  tags: TagPublicationEntity[];
+  tagsId: string[];
 
   @Column({ default: 0 })
   score: number;
