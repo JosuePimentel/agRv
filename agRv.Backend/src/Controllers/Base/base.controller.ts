@@ -13,7 +13,7 @@ import { AuthGuard } from 'src/Modules/AccountAggregate/auth/auth.guard';
 import { BaseService } from 'src/Services/Base/base.service';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 
-@UseGuards(AuthGuard)
+// @UseGuards(AuthGuard)
 export abstract class BaseController<T extends BaseEntity> {
   constructor(protected readonly s: BaseService<any>) {}
 

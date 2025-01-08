@@ -24,20 +24,12 @@ import { ShowModule } from './Modules/PublicationAggregate/show.module';
 import { TagPublicationModule } from './Modules/PublicationAggregate/tag-publication.module';
 import { TagSectionModule } from './Modules/PublicationAggregate/tag-section.module';
 import { DaysOpenModule } from './Modules/PublicationAggregate/days-open.module';
+import { AppDataSource } from './data-source';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: Number(process.env.POSTGRES_PORT),
-      username: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DB,
-      synchronize: true,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-    }),
+    TypeOrmModule.forRoot(AppDataSource.options),
     GenreAccountModule,
     UrlBaseModule,
     LinkPublicationModule,
