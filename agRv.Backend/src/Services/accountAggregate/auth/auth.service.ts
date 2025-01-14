@@ -1,10 +1,21 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AccountService } from '../account.service';
 import { JwtService } from '@nestjs/jwt';
-import { LoginModel } from 'src/Models/AccountAggregate/auth/Login.model';
-import { AuthDto } from "src/DTO's/AccountAggregate/auth/auth.dto";
 import { compareSync } from 'bcrypt';
 import { ConfigService } from '@nestjs/config';
+import { IsString } from 'class-validator';
+
+export interface AuthDto {
+  token: string;
+  expiresIn: number;
+}
+
+export class LoginModel {
+  @IsString()
+  email: string;
+  @IsString()
+  password: string;
+}
 
 @Injectable()
 export class AuthService {

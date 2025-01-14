@@ -8,8 +8,6 @@ import { FooterComponent } from './components/footer/footer.component';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  host: {
-    class: 'block mx-[15%] relative min-h-dvh'
-  },
+  host: {},
 })
 export class AppComponent {}

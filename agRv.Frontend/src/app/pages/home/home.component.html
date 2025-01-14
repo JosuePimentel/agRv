@@ -1,9 +1,52 @@
-<app-slide/>
+<app-slide-banner />
 
-<div class="w-full flex justify-between py-[64px]">
-  @for(item of nav; track $index) {
-    <app-buttons-nav [data]="item"/>
-  }
-</div>
+<span class="separator-horizontal"></span>
 
-<app-list-publications [title]="'Indicações'" [desc]="'Indicações da agendaRv e indicações pagas por anunciantes.'" [data]="data"/>
+<main class="px-32">
+  <ul
+    class="*:overflow-hidden *:size-40 *:cursor-pointer *:rounded-full *:bg-black flex justify-between items-center *:border-4 *:border-solid *:border-PRIMARY-default *:transition-all *:relative"
+  >
+    <li class="hover:scale-110 group">
+      <img
+        class="w-full h-full relative object-cover"
+        src="/assets/images/show.jpg"
+        alt=""
+      />
+      <span class="w-full h-full bg-[rgba(255,255,255,.1)] stroke-xs-white absolute uppercase font-extrabold text-2xl text-PRIMARY-default hidden group-hover:flex items-center justify-center top-0">festas</span>
+    </li>
+    <li class="hover:scale-110 group">
+      <img
+        class="w-full h-full object-cover"
+        src="/assets/images/cinema.jpg"
+        alt=""
+      />
+      <span class="w-full h-full bg-[rgba(255,255,255,.1)] stroke-xs-white absolute uppercase font-extrabold text-2xl text-PRIMARY-default hidden group-hover:flex items-center justify-center top-0">cinema</span>
+    </li>
+    <li class="hover:scale-110 group">
+      <img
+        class="w-full h-full object-cover"
+        src="/assets/images/restaurant.jpg"
+        alt=""
+      />
+      <span class="w-full h-full bg-[rgba(255,255,255,.1)] stroke-xs-white absolute uppercase font-extrabold text-base text-PRIMARY-default hidden group-hover:flex items-center justify-center top-0">restaurantes</span>
+    </li>
+    <li class="hover:scale-110 group">
+      <img
+        class="w-full h-full object-cover"
+        src="/assets/images/film.jpg"
+        alt=""
+      />
+      <span class="w-full h-full bg-[rgba(255,255,255,.1)] stroke-xs-white absolute uppercase font-extrabold text-2xl text-PRIMARY-default hidden group-hover:flex items-center justify-center top-0">Filmes</span>
+    </li>
+    <li class="hover:scale-110 group">
+      <img
+        class="w-full h-full object-cover"
+        src="/assets/images/news.jpg"
+        alt=""
+      />
+      <span class="w-full h-full bg-[rgba(255,255,255,.1)] stroke-xs-white absolute uppercase font-extrabold text-2xl text-PRIMARY-default hidden group-hover:flex items-center justify-center top-0">notícias</span>
+    </li>
+  </ul>
+</main>
+
+<app-top-indications/>

@@ -31,13 +31,13 @@ export class PublicationEntity extends BaseEntity {
   @Column()
   title: string;
 
-  @Column({ type: 'varchar', name: 'main_image' })
+  @Column({ name: 'main_image' })
   mainImage: string;
 
-  @Column({ type: 'varchar', name: 'long_desc' })
+  @Column({ name: 'long_desc' })
   longDesc: string;
 
-  @Column({ type: 'varchar', name: 'short_desc' })
+  @Column({ name: 'short_desc' })
   shortDesc: string;
 
   // @Column({ type: 'varchar', name: 'link_site', nullable: true })
@@ -82,13 +82,11 @@ export class PublicationEntity extends BaseEntity {
   @JoinColumn({ name: 'restaurant_id' })
   restaurantId: string;
 
-  @OneToOne(() => AddressEntity, {
-    nullable: false,
-  })
+  @OneToOne(() => AddressEntity)
   @JoinColumn({ name: 'address_id' })
   addressId: string;
 
-  @ManyToOne(() => AccountEntity, (account) => account.publicationId, {
+  @ManyToOne(() => AccountEntity, {
     nullable: false,
   })
   @JoinColumn({ name: 'account_id' })
@@ -113,4 +111,7 @@ export class PublicationEntity extends BaseEntity {
 
   @Column({ default: false })
   promoted: boolean;
+
+  // @OneToMany(() => PublicationPromotedBannerEntity, (pub) => pub.publicationId)
+  // publicationPromotedBannersId: string[];
 }

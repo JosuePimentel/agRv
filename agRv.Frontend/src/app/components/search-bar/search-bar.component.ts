@@ -11,17 +11,9 @@ import { SearchCardComponent } from '../search-card/search-card.component';
   ],
   templateUrl: './search-bar.component.html',
   host: {
-    class: 'flex items-center py-[8px] px-[11px] rounded shadow-shiny h-min w-[560px] flex absolute left-[50%] -translate-x-[280px]'
+    class: 'flex gap-[20px] rounded-full px-4 py-2 relative overflow-hidden text-white cursor-pointer border border-solid border-[rgba(255,255,255,.05)] bg-[rgba(217,217,217,0.1)]'
   }
 })
 export class SearchBarComponent {
   searchInput: string = '';
-
-  search() {
-    console.log(this.searchInput);
-  }
-
-  escrever(e: any) {
-    console.log(e);
-  }
 }

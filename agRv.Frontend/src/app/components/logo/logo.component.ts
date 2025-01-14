@@ -6,6 +6,4 @@ import { Component, Input } from '@angular/core';
   imports: [],
   templateUrl: './logo.component.html',
 })
-export class LogoComponent {
-  @Input('svg-width') width: string = '200';
-}
+export class LogoComponent {}

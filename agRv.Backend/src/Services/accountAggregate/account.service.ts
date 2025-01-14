@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { hashSync } from 'bcrypt';
 import { AccountEntity } from 'src/Entities/AccountAggregate/account.entity';
-import { LoginModel } from 'src/Models/AccountAggregate/auth/Login.model';
 import { Repository } from 'typeorm';
 import { BaseService } from '../Base/base.service';
+import { LoginModel } from './auth/auth.service';
 
 @Injectable()
 export class AccountService extends BaseService<AccountEntity> {

@@ -1,0 +1,23 @@
+@if (publications()) {
+<swiper-container
+  init="false"
+  class="w-full h-full"
+  style="
+    --swiper-pagination-color: #ff7d03;
+    --swiper-pagination-bullet-size: 10px;
+    --swiper-pagination-bullet-inactive-opacity: 0.7;
+    --swiper-navigation-color: #ffffff00;
+  "
+>
+  @for (pub of publications(); track $index) {
+  <swiper-slide>
+    <a
+      href=""
+      class="w-full h-full"
+    >
+      <img [src]="pub.image" class="w-full h-full object-fit" alt="" />
+    </a>
+  </swiper-slide>
+  }
+</swiper-container>
+}

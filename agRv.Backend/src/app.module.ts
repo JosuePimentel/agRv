@@ -25,6 +25,7 @@ import { TagPublicationModule } from './Modules/PublicationAggregate/tag-publica
 import { TagSectionModule } from './Modules/PublicationAggregate/tag-section.module';
 import { DaysOpenModule } from './Modules/PublicationAggregate/days-open.module';
 import { AppDataSource } from './data-source';
+import { PublicationPromotedBannerModule } from './Modules/PublicationAggregate/publication-promoted-banner.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { AppDataSource } from './data-source';
     TagPublicationModule,
     TagSectionModule,
     DaysOpenModule,
+    PublicationPromotedBannerModule,
   ],
   controllers: [],
   providers: [],

@@ -1105,6 +1105,7 @@ export default class CitySeed implements Seeder {
         stateId: 'f8c83052-8f9a-4003-be11-73d18933529b',
       },
       {
+        id: '38f6101e-eb8d-4e0a-b9c8-9799bc9c3688',
         name: 'Rio Verde',
         location: '-17.7903, -50.9178',
         CEP: '75900-000',

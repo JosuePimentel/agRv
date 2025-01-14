@@ -1,8 +1,8 @@
-import { BaseDto } from '../Base/base.dto';
-import { UrlBaseDto } from './urlBase.dto';
+import { BaseDtoInterface } from "../Base/base.dto.interface";
+import { UrlBaseDtoInterface } from "./urlBase.dto.interface";
 
-export interface LinkPublicationDto extends BaseDto {
+export interface LinkPublicationDtoInterface extends BaseDtoInterface {
   link: string;
-  urlBase: UrlBaseDto;
-  // publication: PublicationDto; // Comentado porque não é necessário aqui
+  urlBase: UrlBaseDtoInterface;
+  // publication: PublicationDto;
 }

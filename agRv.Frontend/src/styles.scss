@@ -52,7 +52,6 @@
     padding: 0;
     margin: 0;
     appearance: none;
-    color: #fff;
     user-select: none;
     -webkit-user-drag: none;
   }
@@ -81,15 +80,14 @@
     user-select: text;
     /* Standard syntax */
   }
-}
 
-@layer components {
   body {
     width: 100vw;
     height: 100dvh;
-    background-color: #212121;
   }
 }
+
+@layer components {}
 
 @layer utilities {
   .material-symbols-outlined {
@@ -107,10 +105,20 @@
   .text-small {
     @apply text-xs font-normal;
   }
+
+  .separator-horizontal {
+    border-color: rgba(0,0,0,.2);
+    @apply block border-solid m-12 border-t-[1.5px] border-0;
+  }
+
+  .stroke-xs-white {
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: rgba(255,255,255);
+  }
+
+  .stylish-font {
+    font-family: 'Jomhuria';
+  }
 }
 
-html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

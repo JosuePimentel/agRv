@@ -1,23 +1,4 @@
-<label for="search" class="material-symbols-outlined text-3xl text-PRIMARY-default"> search </label>
-<input
-  (input)="search()"
-  type="text"
-  [(ngModel)]="searchInput"
-  id="search"
-  class="w-full p-[10px] h-[36px] text-xs font-semibold bg-transparent placeholder:text-xs placeholder:font-semibold truncate"
-  placeholder="Busque por restaurantes, show e eventos em Rio Verde, a maior cidade do sudeste goiano."
-/>
-<span class="material-symbols-outlined {{searchInput.length ? 'block' : 'hidden' }} text-base cursor-pointer" (click)="searchInput = ''"> close </span>
+<span class="material-symbols-outlined"> search </span>
+<span class="">Pesquisar</span>
 
-@if(searchInput.length) {
-  <div class="flex flex-col gap-5 w-full rounded shadow-shiny absolute left-0 top-[calc(100%+10px)] p-10 bg-BLACK-default z-16 max-h-[500px] overflow-y-auto">
-    <app-search-card title="Chat-GPT for Profit: A Tehc Talk for Non-Techies"/>
-    <app-search-card title="Chat-GPT for Profit: A Tehc Talk for Non-Techies"/>
-    <app-search-card title="Chat-GPT for Profit: A Tehc Talk for Non-Techies"/>
-    <app-search-card title="Chat-GPT for Profit: A Tehc Talk for Non-Techies"/>
-    <app-search-card title="Chat-GPT for Profit: A Tehc Talk for Non-Techies"/>
-    <app-search-card title="Chat-GPT for Profit: A Tehc Talk for Non-Techies"/>
-    <app-search-card title="Chat-GPT for Profit: A Tehc Talk for Non-Techies"/>
-    <app-search-card title="Chat-GPT for Profit: A Tehc Talk for Non-Techies"/>
-  </div>
-}
+<!-- <div class="w-full h-full rounded-full blur-3xl bg-WHITE-default absolute top-0 left-0 z-[1]"></div> -->

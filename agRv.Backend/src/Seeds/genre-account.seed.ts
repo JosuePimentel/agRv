@@ -13,6 +13,7 @@ export default class GenreAccontSeed implements Seeder {
 
     const genres = [
       {
+        id: '80d6cf58-2de1-430c-b0ed-9ee7181686a7',
         name: 'Homem',
       },
       {

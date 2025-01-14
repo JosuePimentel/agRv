@@ -1,0 +1,25 @@
+@if (topPubs()) {
+  <p class="text-lg font-bold flex items-center gap-1">
+    Top 10 Indicações
+    <span matTooltip="Indicações pagas ou não" class="material-symbols-outlined text-xl">
+      help
+    </span>
+  </p>
+
+  <swiper-container
+    init="false"
+    class="w-full h-full pt-4 group relative"
+    id="topIndication"
+  >
+    @for (pub of topPubs(); track $index) {
+      <swiper-slide class="h-[350px] w-[270px]">
+        <a
+          href=""
+          class="w-[75%] h-[330px] absolute top-0 right-0 bg-no-repeat block rounded-md bg-center"
+          [style.backgroundImage]="'url(' + pub.mainImage + ')'"
+        ></a>
+        <span class="stylish-font absolute bottom-0 text-[350px] h-[85%] {{$index+1 == 1 ? 'left-[25px]' : 'left-0'}}">{{$index+1}}</span>
+      </swiper-slide>
+    }
+  </swiper-container>
+}
