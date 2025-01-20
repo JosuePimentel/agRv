@@ -12,4 +12,15 @@ export class SectionService extends BaseService<SectionEntity> {
   ) {
     super(repo);
   }
+
+  async getByFilmId(filmId: string): Promise<SectionEntity[]> {
+    return await this.repo.query(
+      `SELECT * FROM "sections" WHERE "film_id" = '${filmId}'`,
+    );
+    // return await this.repo.find({
+    //   where: {
+    //     filmId,
+    //   },
+    // });
+  }
 }

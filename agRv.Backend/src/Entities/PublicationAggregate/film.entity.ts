@@ -5,12 +5,10 @@ import {
   JoinTable,
   ManyToMany,
   ManyToOne,
-  OneToMany,
 } from 'typeorm';
 import { BaseEntity } from '../Base/base.entity';
 import { GenreFilmEntity } from './genre-film.entity';
 import { PersonEntity } from './person.entity';
-import { SectionEntity } from './section.entity';
 import { AgeRatingEntity } from './age-rating.entity';
 import { ProductionCompanyEntity } from './production-company.entity';
 
@@ -25,7 +23,7 @@ export class FilmEntity extends BaseEntity {
   @Column()
   duration: number;
 
-  @ManyToMany(() => GenreFilmEntity)
+  @ManyToMany(() => GenreFilmEntity, { nullable: false, eager: true })
   @JoinTable({
     name: 'film_genre_film',
     joinColumn: { name: 'film_id', referencedColumnName: 'id' },
@@ -33,7 +31,7 @@ export class FilmEntity extends BaseEntity {
   })
   genreFilmId: string[];
 
-  @ManyToMany(() => PersonEntity)
+  @ManyToMany(() => PersonEntity, { nullable: false, eager: true })
   @JoinTable({
     name: 'elenco_film_person',
     joinColumn: { name: 'film_id', referencedColumnName: 'id' },
@@ -41,22 +39,21 @@ export class FilmEntity extends BaseEntity {
   })
   castId: string[];
 
-  @ManyToOne(() => PersonEntity, (person) => person.filmId, {
+  @ManyToOne(() => PersonEntity, {
     nullable: false,
+    eager: true,
   })
   @JoinColumn({ name: 'direction_person_id' })
   directionPersonId: string;
 
-  @OneToMany(() => SectionEntity, (section) => section.filmId)
-  sectionId: string[];
-
-  @ManyToOne(() => AgeRatingEntity, (ageRating) => ageRating.filmId, {
+  @ManyToOne(() => AgeRatingEntity, {
     nullable: false,
+    eager: true,
   })
   @JoinColumn({ name: 'age_rating_id' })
   ageRatingId: string;
 
-  @ManyToMany(() => ProductionCompanyEntity)
+  @ManyToMany(() => ProductionCompanyEntity, { eager: true, nullable: false })
   @JoinTable({
     name: 'film_production_company',
     joinColumn: {

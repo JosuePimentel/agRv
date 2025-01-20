@@ -45,6 +45,7 @@ export class SlideBannerComponent implements OnInit {
         loop: true,
         autoplay: { delay: 4000, pauseOnMouseEnter: true },
         direction: 'horizontal',
+        grabCursor: true,
         pagination: {
           type: 'bullets',
           dynamicBullets: true,

@@ -1,8 +1,10 @@
 import { BaseModelInterface } from "../Base/base.model.interface";
 
 export interface SectionModelInterface extends BaseModelInterface {
-  date: Date;
+  beginDate: Date;
+  endDate: Date;
+  time: string;
   amount: number;
-  tagSectionId: string[];
+  filmId: string;
   cinemaId: string;
 }

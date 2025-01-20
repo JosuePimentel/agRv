@@ -1,12 +1,11 @@
 import { BaseDtoInterface } from '../Base/base.dto.interface';
-import { CinemaDtoInterface } from './cinema.dto.interface';
-import { FilmDtoInterface } from './film.dto.interface';
-import { TagSectionsDtoInterface } from './tag-section.dto.interface';
+import { PublicationDtoInterface } from './publication.dto.interface';
 
 export interface SectionDtoInterface extends BaseDtoInterface {
-  date: Date;
+  beginDate: Date;
+  endDate: Date;
+  time: string;
   amount: number;
-  film: FilmDtoInterface;
-  tagSection: TagSectionsDtoInterface[];
-  cinema: CinemaDtoInterface;
+  filmId: PublicationDtoInterface;
+  cinema: PublicationDtoInterface;
 }

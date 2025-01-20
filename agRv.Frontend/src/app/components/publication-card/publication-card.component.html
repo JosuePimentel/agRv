@@ -1,21 +1,71 @@
-<div class="w-full h-[200px] relative bg-WHITE-default rounded-md">
-  <span class="absolute top-[20px] right-[25px] text-[10px] font-semibold py-1 px-3 text-black bg-white rounded-[3px] after:content-['?'] justify-center items-center after:w-[15px] after:h-[15px] after:flex after:items-center after:justify-center after:rounded-full after:border-[1px] after:ml-1 after:border-black after:border-solid {{pub.promoted ? 'flex' : 'hidden'}}" matTooltip="Publicação promovida pela plataforma agendaRioVerde" matTooltipPosition="below">Promovido</span>
+<div class="w-full h-[150px] relative bg-WHITE-default">
+  <span
+    class="absolute top-[10px] right-[10px] text-[10px] font-semibold py-1 px-3 text-black bg-white rounded-[3px] after:content-['?'] justify-center items-center after:w-[15px] after:h-[15px] after:flex after:items-center after:justify-center after:rounded-full after:border-[1px] after:ml-1 after:border-black after:border-solid {{
+      data.promoted ? 'flex' : 'hidden'
+    }}"
+    matTooltip="Publicação promovida pela plataforma agendaRioVerde"
+    matTooltipPosition="below"
+    >Promovido</span
+  >
+  <img [src]="data.mainImage" class="w-full h-full object-cover" alt="" />
 </div>
-<div class="px-4 pb-4 flex flex-col gap-1 group-hover:*:text-black">
-  <div class="">
-    @for (tag of pub.tags; track $index) {
-      <span class="px-5 py-1.5 rounded-md text-sm font-semibold flex justify-center items-center w-fit {{tag == 'Restaurante' ? 'bg-red-600 text-red-200' : 'bg-PRIMARY-default text-PRIMARY-200'}}">
-        {{tag}}
-      </span>
-    }
+<div class="min-w-full p-[10px] overflow-x-auto overflow-y-hidden scrollbar-horizontal *:w-fit">
+
+  <div class="*:text-xs flex gap-3 *:text-nowrap" *ngIf="data.publicationTypeEnum == 0">
+
+    <span class="tag text-PRIMARY-default bg-PRIMARY-200" *ngIf="data.showId?.fromAmountTicket;"> Festa </span>
+    <span class="tag text-slate-600 bg-slate-200" *ngIf="!data.showId?.fromAmountTicket;"> Grátis </span>
+    <span class="tag text-red-600 bg-red-200" *ngIf="eventDate == 0"> Hoje </span>
+    <span class="tag text-red-600 bg-red-200" *ngIf="eventDate == 1"> Esse fim de semana </span>
+    <span class="tag text-red-600 bg-red-200" *ngIf="eventDate == 2"> Essa semana </span>
+    <span class="tag text-red-600 bg-red-200" *ngIf="eventDate == 3"> Esse mês </span>
+
   </div>
-  <h2 class="w-full text-wrap font-semibold">{{pub.title}}</h2>
-  <p class="font-normal text-xs">{{pub.day}}</p>
-  <span class="flex gap-0.5 items-center">
-    <span class="material-symbols-outlined text-lg group-hover:text-black">
-      confirmation_number
-    </span>
-    <p class="group-hover:text-black m-[0!important] text-xs font-normal">Free</p>
-  </span>
-  <p class="text-xs font-semibold capitalize">{{pub.author}}</p>
+
+  <div class="*:text-xs flex gap-3 *:text-nowrap" *ngIf="data.publicationTypeEnum == 1">
+    <span class="tag text-blue-600 bg-blue-200"> Cinema </span>
+  </div>
+
+  <div class="*:text-xs flex gap-3 *:text-nowrap" *ngIf="data.publicationTypeEnum == 2">
+    <span class="tag text-orange-600 bg-orange-200"> Filme </span>
+    <span class="tag text-red-600 bg-red-200" *ngIf="filmDate"> Seção hoje </span>
+  </div>
+
+  <div class="*:text-xs flex gap-3 *:text-nowrap" *ngIf="data.publicationTypeEnum == 3">
+    <span class="tag text-green-600 bg-green-200"> Notícia </span>
+  </div>
+
+  <div class="*:text-xs flex gap-3 *:text-nowrap" *ngIf="data.publicationTypeEnum == 4"></div>
+
+</div>
+<div class="px-2 flex flex-col gap-1 pb-3">
+  <h2 class="font-semibold">{{ data.title }}</h2>
+  <p
+    class="first-letter:capitalize text-xs"
+    *ngIf="data.publicationTypeEnum == 0"
+  >
+    {{ data.showId?.date | date : "EEEE, dd 'de' MMMM 'às' HH:mm" }}
+  </p>
+  <p
+    class="text-justify text-xs line-clamp-2"
+    [title]="data.shortDesc"
+    *ngIf="data.publicationTypeEnum == 3  || data.publicationTypeEnum == 1 || data.publicationTypeEnum == 2"
+  >
+    {{ data.shortDesc }}
+  </p>
+  <p
+    class="flex items-center gap-1 text-sm"
+    *ngIf="data.publicationTypeEnum == 0"
+  >
+    <span class="material-symbols-outlined text-xl"> confirmation_number </span>
+    {{
+      !data.showId?.fromAmountTicket
+        ? "Grátis"
+        : 'A partir de ' + data.showId?.fromAmountTicket?.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL"
+          })
+    }}
+  </p>
+  <p class="text-PRIMARY-default font-medium text-sm">{{ data.author }}</p>
 </div>

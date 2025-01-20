@@ -1,0 +1,23 @@
+<div class="flex w-full justify-between items-center">
+  <p class="text-lg font-bold capitalize">{{ title }}</p>
+
+  <p class="flex items-center cursor-pointer">
+    Ver todos <span class="material-symbols-outlined"> chevron_right </span>
+  </p>
+</div>
+
+<swiper-container
+    init="false"
+    class="w-full h-full pt-4 group relative topPubs"
+  >
+    @for (d of data; track $index) {
+      <swiper-slide class="max-h-[350px w-[270px]" lazy="true">
+        <!-- <a
+          href=""
+          class="w-full h-full bg-no-repeat block rounded-md bg-center"
+          [style.backgroundImage]="'url(' + d.mainImage + ')'"
+        ></a> -->
+        <app-publication-card [data]="d"/>
+      </swiper-slide>
+    }
+  </swiper-container>

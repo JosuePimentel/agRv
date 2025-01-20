@@ -17,7 +17,7 @@ export class PublicationController extends BaseController<PublicationEntity> {
     return this.service.topBanner();
   }
 
-  @Get('top-pub')
+  @Get('top-pubs/:type')
   async topPubs(
     @Param('type') type: PublicationTypeEnum,
   ): Promise<PublicationEntity[]> {

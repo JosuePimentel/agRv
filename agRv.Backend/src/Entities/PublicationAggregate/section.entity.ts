@@ -1,39 +1,38 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  JoinTable,
-  ManyToMany,
-  ManyToOne,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../Base/base.entity';
-import { FilmEntity } from './film.entity';
-import { TagSectionsEntity } from './tag-section.entity';
-import { CinemaEntity } from './cinema.entity';
+import { PublicationEntity } from './publication.entity';
 
 @Entity('sections')
 export class SectionEntity extends BaseEntity {
-  @Column({ type: 'timetz' })
-  date: Date;
+  @Column({ type: 'timestamp' })
+  beginDate: Date;
+
+  @Column({ type: 'timestamp' })
+  endDate: Date;
+
+  @Column({ type: 'time' })
+  time: Date;
 
   @Column()
   amount: number;
 
-  @ManyToOne(() => FilmEntity, (filme) => filme.sectionId, {
+  @ManyToOne(() => PublicationEntity, {
+    eager: true,
     nullable: false,
   })
   @JoinColumn({ name: 'film_id' })
   filmId: string;
 
-  @ManyToMany(() => TagSectionsEntity)
-  @JoinTable({
-    name: 'section_tag_section',
-    joinColumn: { name: 'section_id', referencedColumnName: 'id' },
-    inverseJoinColumn: { name: 'tag_section_id', referencedColumnName: 'id' },
-  })
-  tagSectionId: string[];
+  // @ManyToMany(() => TagSectionsEntity)
+  // @JoinTable({
+  //   name: 'section_tag_section',
+  //   joinColumn: { name: 'section_id', referencedColumnName: 'id' },
+  //   inverseJoinColumn: { name: 'tag_section_id', referencedColumnName: 'id' },
+  // })
+  // tagSectionId: string[];
 
-  @ManyToOne(() => CinemaEntity, (cinema) => cinema.sectionId, {
+  @ManyToOne(() => PublicationEntity, {
+    eager: true,
     nullable: false,
   })
   @JoinColumn({ name: 'cinema_id' })

@@ -16,9 +16,9 @@ export class DaysOpenEntity extends BaseEntity {
   @Column({ name: 'day_of_week', enum: dayOfWeek })
   dayOfWeek: dayOfWeek;
 
-  @Column({ name: 'begin_time', type: 'timetz' })
+  @Column({ name: 'begin_time', type: 'time' })
   beginTime: string;
 
-  @Column({ name: 'end_time', type: 'timetz' })
+  @Column({ name: 'end_time', type: 'time' })
   endTime: string;
 }

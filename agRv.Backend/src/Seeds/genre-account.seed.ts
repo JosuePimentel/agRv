@@ -17,9 +17,11 @@ export default class GenreAccontSeed implements Seeder {
         name: 'Homem',
       },
       {
+        id: 'abe66050-44ef-4a7b-bd5a-3f4737423d2a',
         name: 'Mulher',
       },
       {
+        id: '2a97cec9-e1e6-42ac-8aa8-7453f8b3492c',
         name: 'Outro',
       },
     ];

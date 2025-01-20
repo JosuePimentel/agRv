@@ -8,6 +8,12 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
+  app.enableCors({
+    origin: 'http://localhost:4200', // Permitir requisições dessa origem específica
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos permitidos
+    credentials: true, // Permitir cookies e cabeçalhos de autenticação
+  });
+
   const config = new DocumentBuilder()
     .setTitle('agRv api')
     .setVersion('1.0')

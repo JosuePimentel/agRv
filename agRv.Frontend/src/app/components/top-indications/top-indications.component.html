@@ -1,4 +1,4 @@
-@if (topPubs()) {
+@if (topPubs().length) {
   <p class="text-lg font-bold flex items-center gap-1">
     Top 10 Indicações
     <span matTooltip="Indicações pagas ou não" class="material-symbols-outlined text-xl">
@@ -12,7 +12,7 @@
     id="topIndication"
   >
     @for (pub of topPubs(); track $index) {
-      <swiper-slide class="h-[350px] w-[270px]">
+      <swiper-slide class="h-[360px] w-[270px]">
         <a
           href=""
           class="w-[75%] h-[330px] absolute top-0 right-0 bg-no-repeat block rounded-md bg-center"

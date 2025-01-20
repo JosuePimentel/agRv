@@ -43,6 +43,8 @@ export class TopIndicationsComponent {
         direction: 'horizontal',
         spaceBetween: 60,
         rewind: true,
+        grabCursor: true,
+        mousewheel: true,
         autoplay: { delay: 5000, pauseOnMouseEnter: true }
       };
 
