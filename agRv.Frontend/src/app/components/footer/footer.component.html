@@ -1,13 +1,10 @@
-<app-logo svg-width="150" />
+<div class="w-full"></div>
 
-<div class="flex gap-5">
-  @for (item of socialMediaLinks; track $index) {
-    <app-social-media-link
-      [link]="item.link"
-      [type]="item.type"
-    />
-  }
+<div class="relative flex items-center justify-center">
+  <app-small-logo class="absolute z-10 bg-black px-8"/>
+  <span class="separator-horizontal border-[#575757] w-full relative" style="margin: 30px 48px;"></span>
 </div>
 
-
-<p class="text-xs font-semibold text-PRIMARY-default">Agenda Rio Verde © Desde 2024</p>
+<div class="text-sm font-medium text-center text-PRIMARY-default mb-5">
+  AlôRV © Desde 2025
+</div>
