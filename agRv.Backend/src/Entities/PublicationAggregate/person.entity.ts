@@ -19,6 +19,7 @@ export class PersonEntity extends BaseEntity {
 
   @ManyToOne(() => CountryEntity, {
     nullable: false,
+    eager: true,
   })
   @JoinColumn({ name: 'country_id' })
   countryId: string;

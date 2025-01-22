@@ -7,6 +7,7 @@ import UrlBaseSeed from './url-base.seed';
 import GenreAccontSeed from './genre-account.seed';
 import GenreFilmSeed from './genre-film.seed';
 import AgeRatingSeed from './age-rating.seed';
+import AccountSeed from './account.seed';
 
 export default class MainSeed implements Seeder {
   async run(
@@ -22,6 +23,7 @@ export default class MainSeed implements Seeder {
         GenreAccontSeed,
         GenreFilmSeed,
         AgeRatingSeed,
+        AccountSeed,
       ],
     });
   }

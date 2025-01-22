@@ -67,7 +67,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #ff7d03;
+    background-color: #FE3300;
   }
 
   input {
@@ -90,12 +90,24 @@
 @layer components {}
 
 @layer utilities {
+  .scrollbar-horizontal::-webkit-scrollbar {
+    height: 2px;
+  }
+
+  .tag {
+    @apply py-[5px] px-[20px] first-letter:uppercase rounded-md block w-fit font-medium;
+  }
+
   .material-symbols-outlined {
     font-variation-settings:
     'FILL' 0,
     'wght' 400,
     'GRAD' 0,
     'opsz' 24
+  }
+
+  .shadow {
+    box-shadow: 0 0 10px .05px black;
   }
 
   .shiny {

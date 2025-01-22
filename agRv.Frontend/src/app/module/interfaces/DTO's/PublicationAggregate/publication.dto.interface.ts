@@ -17,13 +17,11 @@ export interface PublicationDtoInterface extends BaseDtoInterface {
   author: string;
   email: string;
   publicationTypeEnum: PublicationEnumInterface;
-  film?: FilmDtoInterface;
-  cinema?: CinemaDtoInterface;
-  show?: ShowDtoInterface;
-  restaurant?: RestaurantDtoInterface;
-  linkPublication: LinkPublicationDtoInterface[];
-  address?: AddressDtoInterface;
-  tags: TagPublicationDtoInterface[];
+  filmId?: FilmDtoInterface;
+  cinemaId?: CinemaDtoInterface;
+  showId?: ShowDtoInterface;
+  restaurantId?: RestaurantDtoInterface;
+  linkPublicationId: LinkPublicationDtoInterface[];
   score: number;
   promoted: boolean;
   // account: AccountDto;

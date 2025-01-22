@@ -13,6 +13,7 @@ export default class AgeRatingSeed implements Seeder {
 
     const agesRating = [
       {
+        id: 'f52ff2a9-2e38-4fc8-87c3-21abfe51c41f',
         age: 0,
       },
       {

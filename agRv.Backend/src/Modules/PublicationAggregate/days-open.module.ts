@@ -8,5 +8,6 @@ import { DaysOpenService } from 'src/Services/PublicationAggregate/days-open.ser
   imports: [TypeOrmModule.forFeature([DaysOpenEntity])],
   controllers: [DaysOpenController],
   providers: [DaysOpenService],
+  exports: [DaysOpenService],
 })
 export class DaysOpenModule {}

@@ -12,7 +12,7 @@ export default class GenreFilmSeed implements Seeder {
     repository.query('TRUNCATE TABLE genres_films CASCADE');
 
     const genreFilm = [
-      { name: 'Ação' },
+      { id: '7aa9e2ed-3658-4654-b13e-1fdc6488c77a', name: 'Ação' },
       { name: 'Aventura' },
       { name: 'Comédia' },
       { name: 'Drama' },

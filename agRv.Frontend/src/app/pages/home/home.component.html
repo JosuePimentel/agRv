@@ -50,3 +50,13 @@
 </main>
 
 <app-top-indications/>
+
+<app-list-top-publications *ngIf="show.length" [data]="show" title="festas"/>
+
+<app-list-top-publications *ngIf="new.length" [data]="new" title="notícias"/>
+
+<app-list-top-publications *ngIf="cin.length" [data]="cin" title="cinemas"/>
+
+<app-list-top-publications *ngIf="film.length" [data]="film" title="Filmes"/>
+
+<app-list-top-publications *ngIf="rest.length" [data]="rest" title="Restaurantes"/>

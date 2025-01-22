@@ -5,4 +5,7 @@ import { BaseEntity } from '../Base/base.entity';
 export class ShowEntity extends BaseEntity {
   @Column()
   fromAmountTicket: number;
+
+  @Column({ type: 'timestamp' })
+  date: Date;
 }

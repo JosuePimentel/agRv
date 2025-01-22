@@ -2,8 +2,6 @@ import {
   Column,
   Entity,
   JoinColumn,
-  JoinTable,
-  ManyToMany,
   ManyToOne,
   OneToMany,
   OneToOne,
@@ -14,15 +12,14 @@ import { CinemaEntity } from './cinema.entity';
 import { LinkPublicationEntity } from '../LinksAggregate/linkPublication.entity';
 import { ShowEntity } from './show.entity';
 import { RestaurantEntity } from './restaurant.entity';
-import { AddressEntity } from '../LocationAggregate/address.entity';
 import { AccountEntity } from '../AccountAggregate/account.entity';
-import { TagPublicationEntity } from './tag-publication.entity';
+import { SectionEntity } from './section.entity';
 
 export enum PublicationTypeEnum {
   'show',
   'cinema',
   'film',
-  'pub',
+  'new',
   'rest',
 }
 
@@ -56,15 +53,15 @@ export class PublicationEntity extends BaseEntity {
     type: 'enum',
     name: 'publication_type_enum',
     enum: PublicationTypeEnum,
-    default: PublicationTypeEnum.pub,
+    default: PublicationTypeEnum.new,
   })
   publicationTypeEnum: PublicationTypeEnum;
 
-  @OneToOne(() => FilmEntity)
+  @OneToOne(() => FilmEntity, { eager: true })
   @JoinColumn({ name: 'film_id' })
   filmId: string;
 
-  @OneToOne(() => CinemaEntity)
+  @OneToOne(() => CinemaEntity, { eager: true })
   @JoinColumn({ name: 'cinema_id' })
   cinemaId: string;
 
@@ -74,17 +71,17 @@ export class PublicationEntity extends BaseEntity {
   )
   linkPublicationId: string[];
 
-  @OneToOne(() => ShowEntity)
+  @OneToOne(() => ShowEntity, { eager: true })
   @JoinColumn({ name: 'show_id' })
   showId: string;
 
-  @OneToOne(() => RestaurantEntity)
+  @OneToOne(() => RestaurantEntity, { eager: true })
   @JoinColumn({ name: 'restaurant_id' })
   restaurantId: string;
 
-  @OneToOne(() => AddressEntity)
-  @JoinColumn({ name: 'address_id' })
-  addressId: string;
+  // @OneToOne(() => AddressEntity)
+  // @JoinColumn({ name: 'address_id' })
+  // addressId: string;
 
   @ManyToOne(() => AccountEntity, {
     nullable: false,
@@ -92,19 +89,19 @@ export class PublicationEntity extends BaseEntity {
   @JoinColumn({ name: 'account_id' })
   accountId: string;
 
-  @ManyToMany(() => TagPublicationEntity)
-  @JoinTable({
-    name: 'publication_tag_publication',
-    inverseJoinColumn: {
-      name: 'tag_publication_id',
-      referencedColumnName: 'id',
-    },
-    joinColumn: {
-      name: 'publication_id',
-      referencedColumnName: 'id',
-    },
-  })
-  tagsId: string[];
+  // @ManyToMany(() => TagPublicationEntity, { eager: true })
+  // @JoinTable({
+  //   name: 'publication_tag_publication',
+  //   inverseJoinColumn: {
+  //     name: 'tag_publication_id',
+  //     referencedColumnName: 'id',
+  //   },
+  //   joinColumn: {
+  //     name: 'publication_id',
+  //     referencedColumnName: 'id',
+  //   },
+  // })
+  // tagsId: string[];
 
   @Column({ default: 0 })
   score: number;
@@ -112,6 +109,11 @@ export class PublicationEntity extends BaseEntity {
   @Column({ default: false })
   promoted: boolean;
 
+  @OneToMany(() => SectionEntity, (section) => section.filmId)
+  filmSectionId: string[];
+
+  @OneToMany(() => SectionEntity, (section) => section.cinemaId)
+  cinemaSectionId: string[];
   // @OneToMany(() => PublicationPromotedBannerEntity, (pub) => pub.publicationId)
   // publicationPromotedBannersId: string[];
 }
