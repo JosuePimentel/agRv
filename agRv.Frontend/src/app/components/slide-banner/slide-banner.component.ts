@@ -43,7 +43,7 @@ export class SlideBannerComponent implements OnInit {
       const swiperParams: SwiperOptions = {
         slidesPerView: 1,
         loop: true,
-        autoplay: { delay: 4000, pauseOnMouseEnter: true },
+        // autoplay: { delay: 4000, pauseOnMouseEnter: true },
         direction: 'horizontal',
         grabCursor: true,
         pagination: {

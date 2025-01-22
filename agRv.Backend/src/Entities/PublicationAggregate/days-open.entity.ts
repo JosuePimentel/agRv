@@ -1,5 +1,7 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 import { BaseEntity } from '../Base/base.entity';
+import { CinemaDaysWeekEntity } from './cinema-days-week.entity';
+import { RestaurantDaysWeekEntity } from './restaurant-days-week.entity';
 
 export enum dayOfWeek {
   'Sunday' = 0,
@@ -21,4 +23,13 @@ export class DaysOpenEntity extends BaseEntity {
 
   @Column({ name: 'end_time', type: 'time' })
   endTime: string;
+
+  @OneToMany(() => CinemaDaysWeekEntity, (cinemaDays) => cinemaDays.daysOpen)
+  cinemaDays: CinemaDaysWeekEntity[];
+
+  @OneToMany(
+    () => RestaurantDaysWeekEntity,
+    (restaurantDays) => restaurantDays.daysOpen,
+  )
+  restaurantDays: RestaurantDaysWeekEntity[];
 }

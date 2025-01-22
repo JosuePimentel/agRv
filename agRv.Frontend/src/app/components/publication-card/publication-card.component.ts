@@ -3,6 +3,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { PublicationDtoInterface } from "../../module/interfaces/DTO's/PublicationAggregate/publication.dto.interface";
 import { CommonModule } from '@angular/common';
 import { SectionService } from '../../Services/PublicationAggregate/section.service';
+import { DaysOpenDtoInterface } from "../../module/interfaces/DTO's/PublicationAggregate/days-open.dto.interface";
+import { dayOpen } from '../../module/interfaces/DTO\'s/PublicationAggregate/cinema.dto.interface';
 
 @Component({
   selector: 'app-publication-card',
@@ -19,6 +21,8 @@ export class PublicationCardComponent implements OnInit {
   dateToday = new Date();
   eventDate: number | undefined;
   filmDate: number | undefined;
+  cinOpen: Boolean = false;
+  restOpen: Boolean = false;
 
   constructor(private readonly service: SectionService) {}
 
@@ -35,10 +39,10 @@ export class PublicationCardComponent implements OnInit {
         this.eventDate = 1;
       } else if (this.isSameWeek(this.dateToday, dateEvent)) {
         this.eventDate = 2;
-      } else if(this.isSameMonth(this.dateToday, dateEvent)) {
+      } else if (this.isSameMonth(this.dateToday, dateEvent)) {
         this.eventDate = 3;
       }
-    } else if(this.data.filmId) {
+    } else if (this.data.filmId) {
       const sections = await this.service.getByFilmId(this.data.id);
 
       for (const sec of sections) {
@@ -47,14 +51,38 @@ export class PublicationCardComponent implements OnInit {
         const end = new Date(sec.endDate);
         begin.setHours(0, 0, 0, 0);
         end.setHours(0, 0, 0, 0);
-        if(this.dateToday.getTime() >= begin.getTime() && this.dateToday.getTime() < end.getTime()) {
+        if (
+          this.dateToday.getTime() >= begin.getTime() &&
+          this.dateToday.getTime() < end.getTime()
+        ) {
           this.filmDate = 1;
           break;
         }
       }
-    } else if(this.data.cinemaId) {
-      console.log(this.data);
+    } else if (this.data.cinemaId) {
+      this.data.cinemaId.cinemaDays.forEach((day: dayOpen): void => {
+        this.cinOpen = this.isNowInDaysOpen(day.daysOpen);
+      });
+    } else if (this.data.restaurantId) {
+      this.data.restaurantId.restaurantDays.forEach((day: dayOpen): void => {
+        this.restOpen = this.isNowInDaysOpen(day.daysOpen);
+      });
     }
+  }
+
+  isNowInDaysOpen(daysOpen: DaysOpenDtoInterface): boolean {
+    // Obter a data e hora atual
+    const now = new Date();
+    const currentDayOfWeek = now.getDay(); // Retorna o índice do dia da semana (0 = Domingo, 1 = Segunda, ...)
+    const currentTime = now.toTimeString().split(' ')[0]; // Pega o horário atual no formato "HH:mm:ss"
+
+    // Verificar se é o mesmo dia da semana
+    if (currentDayOfWeek !== daysOpen.dayOfWeek) {
+      return false;
+    }
+
+    // Comparar o horário atual com o intervalo de beginTime e endTime
+    return currentTime >= daysOpen.beginTime && currentTime <= daysOpen.endTime;
   }
 
   isSameMonth(date1: Date, date2: Date) {

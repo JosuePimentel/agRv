@@ -19,7 +19,7 @@ export class SwiperListTopPubs {
         loop: true,
         grabCursor: true,
         // mousewheel: true,
-        autoplay: { delay: 5000, pauseOnMouseEnter: true },
+        // autoplay: { delay: 5000, pauseOnMouseEnter: true },
       };
 
       this.swiperEl.forEach((swiper) => {

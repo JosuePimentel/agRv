@@ -4,5 +4,6 @@ import { CityDtoInterface } from './city.dto.interface';
 export interface AddressDtoInterface extends BaseLocationDtoInterface {
   CEP: string;
   complement?: string;
-  city: CityDtoInterface;
+  cityId: CityDtoInterface;
+  neighborhood: string;
 }

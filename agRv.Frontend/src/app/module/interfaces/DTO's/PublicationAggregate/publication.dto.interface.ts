@@ -22,8 +22,6 @@ export interface PublicationDtoInterface extends BaseDtoInterface {
   showId?: ShowDtoInterface;
   restaurantId?: RestaurantDtoInterface;
   linkPublicationId: LinkPublicationDtoInterface[];
-  addressId?: AddressDtoInterface;
-  tagsId: TagPublicationDtoInterface[];
   score: number;
   promoted: boolean;
   // account: AccountDto;

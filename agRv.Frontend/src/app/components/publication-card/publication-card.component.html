@@ -24,6 +24,8 @@
 
   <div class="*:text-xs flex gap-3 *:text-nowrap" *ngIf="data.publicationTypeEnum == 1">
     <span class="tag text-blue-600 bg-blue-200"> Cinema </span>
+    <span class="tag text-green-600 bg-green-200" *ngIf="cinOpen"> Aberto </span>
+    <span class="tag text-red-600 bg-red-200" *ngIf="!cinOpen"> Fechado </span>
   </div>
 
   <div class="*:text-xs flex gap-3 *:text-nowrap" *ngIf="data.publicationTypeEnum == 2">
@@ -35,7 +37,11 @@
     <span class="tag text-green-600 bg-green-200"> Notícia </span>
   </div>
 
-  <div class="*:text-xs flex gap-3 *:text-nowrap" *ngIf="data.publicationTypeEnum == 4"></div>
+  <div class="*:text-xs flex gap-3 *:text-nowrap" *ngIf="data.publicationTypeEnum == 4">
+    <span class="tag text-purple-600 bg-purple-200"> Restaurante </span>
+    <span class="tag text-green-600 bg-green-200" *ngIf="restOpen"> Aberto </span>
+    <span class="tag text-red-600 bg-red-200" *ngIf="!restOpen"> Fechado </span>
+  </div>
 
 </div>
 <div class="px-2 flex flex-col gap-1 pb-3">
@@ -49,9 +55,15 @@
   <p
     class="text-justify text-xs line-clamp-2"
     [title]="data.shortDesc"
-    *ngIf="data.publicationTypeEnum == 3  || data.publicationTypeEnum == 1 || data.publicationTypeEnum == 2"
+    *ngIf="data.publicationTypeEnum == 3  || data.publicationTypeEnum == 1 || data.publicationTypeEnum == 2 || data.publicationTypeEnum == 4"
   >
     {{ data.shortDesc }}
+  </p>
+  <p class="text-xs truncate font-medium" *ngIf="data.publicationTypeEnum == 1">
+    {{ data.cinemaId?.addressId?.abbr + ', ' + data.cinemaId?.addressId?.neighborhood + ' - ' + data.cinemaId?.addressId?.cityId?.name }}
+  </p>
+  <p class="text-xs truncate font-medium" *ngIf="data.publicationTypeEnum == 4">
+    {{ data.restaurantId?.addressId?.abbr + ', ' + data.restaurantId?.addressId?.neighborhood + ' - ' + data.restaurantId?.addressId?.cityId?.name }}
   </p>
   <p
     class="flex items-center gap-1 text-sm"

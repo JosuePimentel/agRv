@@ -8,6 +8,6 @@ export class BaseLocationEntity extends BaseEntity {
   @Column({ type: 'point', nullable: true })
   location: string;
 
-  @Column({ nullable: true, length: 5 })
+  @Column({ nullable: true })
   abbr: string;
 }
