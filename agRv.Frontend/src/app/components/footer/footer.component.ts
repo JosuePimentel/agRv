@@ -9,7 +9,35 @@ import { SmallLogoComponent } from '../small-logo/small-logo.component';
   imports: [LogoComponent, SocialMediaLinkComponent, SmallLogoComponent],
   templateUrl: './footer.component.html',
   host: {
-    class: 'w-full flex flex-col bg-black rounded-t-[20px] relative after:content-[""] after:absolute after:-top-2 after:-z-10  after:left-0 after:bg-PRIMARY-default after:w-full after:h-6'
-  }
+    class:
+      'w-full flex flex-col bg-black rounded-t-[10px] relative after:content-[""] after:absolute after:-top-2 after:-z-10  after:left-0 after:bg-PRIMARY-default after:w-full after:h-6',
+  },
 })
-export class FooterComponent {}
+export class FooterComponent {
+  linksFooter: any[] = [
+    [
+      { title: 'Eventos', link: '' },
+      { title: 'Festas', link: '' },
+      { title: 'Grátis', link: '' },
+      { title: 'Novidades', link: '' },
+      { title: 'Próximas', link: '' },
+    ],
+    [
+      { title: 'Sobre nós', link: '' },
+      { title: 'Quem somos', link: '' },
+      { title: 'Termos de uso', link: '' },
+      { title: 'Política de privacidade', link: '' },
+    ],
+    [
+      { title: 'Criador', link: '' },
+      { title: 'Criar evento', link: '' },
+      { title: 'Cases de sucesso', link: '' },
+    ],
+    [
+      { title: 'Contato', link: '' },
+      { title: 'Central de ajuda', link: '' },
+      { title: 'Entre em contato', link: '' },
+    ],
+  ];
+
+}
