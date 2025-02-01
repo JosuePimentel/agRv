@@ -7,6 +7,7 @@ import { PublicationService } from '../../Services/PublicationAggregate/publicat
 import { PublicationDtoInterface } from '../../module/interfaces/DTO\'s/PublicationAggregate/publication.dto.interface';
 import { CommonModule } from '@angular/common';
 import { SwiperListTopPubs } from '../../module/modules/swiper-list-top-pubs.modules';
+import { SearchComponent } from '../../components/search/search.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ import { SwiperListTopPubs } from '../../module/modules/swiper-list-top-pubs.mod
     MatTooltipModule,
     TopIndicationsComponent,
     ListTopPublicationsComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './home.component.html',
   host: {

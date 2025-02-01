@@ -19,7 +19,7 @@ import { PublicationDtoInterface } from '../../module/interfaces/DTO\'s/Publicat
   templateUrl: './top-indications.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   host: {
-    class: 'block px-32 py-16'
+    class: 'block px-32 py-16 max-lg:px-24 max-sm:px-12 max-md:pt-0'
   }
 })
 export class TopIndicationsComponent {
@@ -44,7 +44,7 @@ export class TopIndicationsComponent {
         spaceBetween: 60,
         rewind: true,
         grabCursor: true,
-        mousewheel: true,
+        // mousewheel: true,
         autoplay: { delay: 5000, pauseOnMouseEnter: true }
       };
 

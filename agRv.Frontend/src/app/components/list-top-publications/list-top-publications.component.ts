@@ -19,7 +19,7 @@ import { PublicationDtoInterface } from '../../module/interfaces/DTO\'s/Publicat
   templateUrl: './list-top-publications.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   host: {
-    class: 'block px-32 pb-16 h-fit'
+    class: 'block px-32 pb-16 h-fit max-lg:px-24 max-sm:px-12'
   }
 })
 export class ListTopPublicationsComponent {
