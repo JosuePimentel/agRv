@@ -11,7 +11,7 @@ import { CommonModule } from "@angular/common";
   imports: [FormsModule, CommonModule],
   templateUrl: 'search.component.html',
   host: {
-    class: 'absolute left-0 top-0 w-screen h-screen bg-PRIMARY-default z-[99999999999] block cursor-default px-96 py-10'
+    class: 'absolute left-0 top-0 w-screen h-dvh bg-PRIMARY-default z-[99999999999] block cursor-default px-96 py-10 max-md:px-5 max-lg:px-10 max-lg:py-5'
   }
 })
 export class SearchComponent implements OnInit{

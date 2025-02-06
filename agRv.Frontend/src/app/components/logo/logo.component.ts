@@ -5,5 +5,8 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './logo.component.html',
+  host: {
+    class: "h-full block"
+  }
 })
 export class LogoComponent {}

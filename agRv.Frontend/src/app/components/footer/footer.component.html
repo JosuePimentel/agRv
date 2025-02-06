@@ -1,6 +1,6 @@
-<div class="flex mx-12 my-8 gap-[70px]">
+<div class="flex mx-12 my-8 gap-[70px] max-lg:gap-10 max-md:flex-col-reverse">
   <div class="flex flex-col w-[300px] gap-2">
-    <app-logo  class="block w-[250px] self-center"/>
+    <app-logo  class="block w-[250px] self-center *:w-full"/>
     <div class="flex gap-2 justify-evenly">
       <a href="">
         <svg
@@ -49,12 +49,12 @@
       </a>
     </div>
   </div>
-  <div class="flex-1 text-white flex justify-evenly">
+  <div class="flex-1 text-white flex justify-evenly max-md:flex-col max-lg:gap-5">
     @for (groups of linksFooter; track $index) {
-      <ul class="flex flex-col gap-1">
+      <ul class="flex flex-col gap-2 max-md:text-center max-md:gap-1">
         @for (text of groups; track $index) {
           @if (!$index) {
-            <li class="text-lg pb-1 font-bold">
+            <li class="text-lg font-bold">
               {{text.title}}
             </li>
           } @else {

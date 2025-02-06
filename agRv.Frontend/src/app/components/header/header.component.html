@@ -1,13 +1,29 @@
-<app-logo class=""/>
+<app-logo class=" max-lg:h-[75%]"/>
 
 <ul
-  class="flex flex-grow-[.25] text-white gap-[80px] justify-center items-cente font-normal text-base "
+  class="flex flex-grow-[.25] text-white gap-[80px] justify-center items-cente font-normal text-base max-lg:hidden"
 >
   <li><a href="" class="hover:text-PRIMARY-default">Festas</a></li>
   <li><a href="" class="hover:text-PRIMARY-default">Cinemas</a></li>
   <li><a href="" class="hover:text-PRIMARY-default">Restaurantes</a></li>
 </ul>
 
-<app-search-bar class="flex-grow-[.3]"/>
+<app-search-bar class="flex-grow-[.3] max-lg:hidden"/>
 
-<span class="material-symbols-outlined text-white text-5xl cursor-pointer"> account_circle </span>
+<span class="material-symbols-outlined max-lg:hidden text-white text-5xl cursor-pointer" translate="no"> account_circle </span>
+
+<div class="hidden max-lg:flex *:text-white *:text-3xl gap-3 *:border-2 *:border-white *:border-solid *:rounded-full *:size-11 *:flex *:items-center *:justify-center even:*:text-PRIMARY-default even:*:border-PRIMARY-default">
+  <span class="material-symbols-outlined" translate="no" (click)="create()"> search </span>
+  <span class="material-symbols-outlined" translate="no"> person </span>
+  <span class="material-symbols-outlined" translate="no" (click)="menuActive = !menuActive"> menu </span>
+</div>
+
+<ng-container #containerSearch></ng-container>
+
+<ul class="{{menuActive == true ? 'flex' : 'hidden'}} pb-2 hover:*:bg-PRIMARY-default transition-colors absolute left-0 top-[5.5rem] z-[99999] w-full bg-[rgba(0,0,0,0.35)] backdrop-blur-[6px] text-white flex-col *:p-2 *:font-normal *:text-center *:text-base *:rounded-sm">
+  <li><a href="" class="w-full block">Cinemas</a></li>
+  <li><a href="" class="w-full block">Restaurantes</a></li>
+  <li><a href="" class="w-full block">Festas</a></li>
+  <li><a href="" class="w-full block">Filmes</a></li>
+  <li><a href="" class="w-full block">Notícias</a></li>
+</ul>

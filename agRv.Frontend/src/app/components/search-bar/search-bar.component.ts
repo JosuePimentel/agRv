@@ -18,14 +18,9 @@ import { ContainerRefModules } from '../../module/modules/container-ref-search.m
     class: '',
   },
 })
-export class SearchBarComponent implements AfterViewInit {
-  @ViewChild('containerSearch', { read: ViewContainerRef, static: true }) container!: ViewContainerRef;
+export class SearchBarComponent {
 
   constructor(private readonly containerRefModules: ContainerRefModules) {}
-
-  ngAfterViewInit() {
-    this.containerRefModules.setViewContainerRef = this.container;
-  }
 
   create() {
     this.containerRefModules.createComponent(SearchComponent);
